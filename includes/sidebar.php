@@ -18,18 +18,18 @@
 						<li class="submenu-open">
 							<h6 class="submenu-hdr">Inventory</h6>
 							<ul>
-								<li class="<?php if($page == 'product-list') {echo 'active';} ?>"><a href="product-list.php"><i data-feather="box"></i><span>Products</span></a></li>
-								<li class="<?php if($page == 'add-product') {echo 'active';} ?>"><a href="add-product.php"><i data-feather="plus-square"></i><span>Create Product</span></a></li>
-								<li class="<?php if($page == 'expired-products') {echo 'active';} ?>"><a href="expired-products.php"><i data-feather="codesandbox"></i><span>Expired Products</span></a></li>
-								<li class="<?php if($page == 'low-stocks') {echo 'active';} ?>"><a href="low-stocks.php"><i data-feather="trending-down"></i><span>Low Stocks</span></a></li>
+								<li class="<?php if($page == 'product-list') {echo 'active';} ?>"><a href="product-list.php"><i data-feather="box"></i><span>Job-cards</span></a></li>
+								<li class="<?php if($page == 'add-product') {echo 'active';} ?>"><a href="add-product.php"><i data-feather="plus-square"></i><span>JobCards Entry</span></a></li>
+								<li hidden class="<?php if($page == 'expired-products') {echo 'active';} ?>"><a href="expired-products.php"><i data-feather="codesandbox"></i><span>Expired Products</span></a></li>
+								<li hidden class="<?php if($page == 'low-stocks') {echo 'active';} ?>"><a href="low-stocks.php"><i data-feather="trending-down"></i><span>Low Stocks</span></a></li>
 								<li class="<?php if($page == 'category-list') {echo 'active';} ?>"><a href="category-list.php"><i data-feather="codepen"></i><span>Category</span></a></li>
 								<li class="<?php if($page == 'sub-categories') {echo 'active';} ?>"><a href="sub-categories.php"><i data-feather="speaker"></i><span>Sub Category</span></a></li>
-								<li class="<?php if($page == 'brand-list') {echo 'active';} ?>"><a href="brand-list.php"><i data-feather="tag"></i><span>Brands</span></a></li>
+								<li class="<?php if($page == 'brand-list') {echo 'active';} ?>"><a href="brand-list.php"><i data-feather="tag"></i><span>Create Jobs</span></a></li>
 								<li class="<?php if($page == 'units') {echo 'active';} ?>"><a href="units.php"><i data-feather="speaker"></i><span>Units</span></a></li>
-								<li class="<?php if($page == 'varriant-attributes') {echo 'active';} ?>"><a href="varriant-attributes.php"><i data-feather="layers"></i><span>Variant Attributes</span></a></li>
-								<li class="<?php if($page == 'warranty') {echo 'active';} ?>"><a href="warranty.php"><i data-feather="bookmark"></i><span>Warranties</span></a></li>
-								<li class="<?php if($page == 'barcode') {echo 'active';} ?>"><a href="barcode.php"><i data-feather="align-justify"></i><span>Print Barcode</span></a></li>
-								<li class="<?php if($page == 'qrcode') {echo 'active';} ?>"><a href="qrcode.php"><i data-feather="maximize"></i><span>Print QR Code</span></a></li>
+								<li hidden class="<?php if($page == 'varriant-attributes') {echo 'active';} ?>"><a href="varriant-attributes.php"><i data-feather="layers"></i><span>Variant Attributes</span></a></li>
+								<li hidden class="<?php if($page == 'warranty') {echo 'active';} ?>"><a href="warranty.php"><i data-feather="bookmark"></i><span>Warranties</span></a></li>
+								<li hidden class="<?php if($page == 'barcode') {echo 'active';} ?>"><a href="barcode.php"><i data-feather="align-justify"></i><span>Print Barcode</span></a></li>
+								<li hidden class="<?php if($page == 'qrcode') {echo 'active';} ?>"><a href="qrcode.php"><i data-feather="maximize"></i><span>Print QR Code</span></a></li>
 							</ul>
 						</li>
 						<li class="submenu-open">
@@ -44,10 +44,10 @@
 							<h6 class="submenu-hdr">Sales</h6>
 							<ul>
 								<li class="<?php if($page == 'sales-list') {echo 'active';} ?>"><a href="sales-list.php"><i data-feather="shopping-cart"></i><span>Sales</span></a></li>
-								<li class="<?php if($page == 'invoice-report') {echo 'active';} ?>"><a href="invoice-report.php"><i data-feather="file-text"></i><span>Invoices</span></a></li>
+								<li hidden class="<?php if($page == 'invoice-report') {echo 'active';} ?>"><a href="invoice-report.php"><i data-feather="file-text"></i><span>Invoices</span></a></li>
 								<li class="<?php if($page == 'sales-returns') {echo 'active';} ?>"><a href="sales-returns.php"><i data-feather="copy"></i><span>Sales Return</span></a></li>
 								<li class="<?php if($page == 'quotation-list.php') {echo 'active';} ?>"><a href="quotation-list.php"><i data-feather="save"></i><span>Quotation</span></a></li>
-								<li class="<?php if($page == 'pos') {echo 'active';} ?>"><a href="pos.php"><i data-feather="hard-drive"></i><span>POS</span></a></li>
+								<li hidden class="<?php if($page == 'pos') {echo 'active';} ?>"><a href="pos.php"><i data-feather="hard-drive"></i><span>POS</span></a></li>
 
 							</ul>
 						</li>

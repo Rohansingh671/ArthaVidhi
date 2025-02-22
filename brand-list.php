@@ -15,7 +15,8 @@
 		<?php include './includes/navbar.php'; ?>
 		<!-- /Header -->
 
-		<?php $page = 'brand-list'; include './includes/sidebar.php'; ?>
+		<?php $page = 'brand-list';
+		include './includes/sidebar.php'; ?>
 
 		<div class="page-wrapper">
 			<div class="content">
@@ -117,249 +118,37 @@
 							<table class="table  datanew">
 								<thead>
 									<tr>
-										<th class="no-sort">
-											<label class="checkboxs">
-												<input type="checkbox" id="select-all">
-												<span class="checkmarks"></span>
-											</label>
-										</th>
-										<th>Brand</th>
-										<th>Logo</th>
-										<th>Created On</th>
+										<th>Job ID</th>
+										<th>Job Description</th>
+										<th>Unit Price</th>
 										<th>Status</th>
 										<th class="no-sort">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Lenevo</td>
-										<td><span class="d-flex"><img src="images/brand-icon-01.png" alt=""></span></td>
-										<td>25 May 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
+									<?php
 
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Boat</td>
-										<td><span class="d-flex"><img src="images/brand-icon-02.png" alt=""></span></td>
-										<td>24 Jun 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
+									require_once 'php/jobDataFromDatabase.php';
+									foreach ($jobs as $job) {
+									?>
+										<tr>
+											<td><a href="#" class="link-primary"><?php echo $job['jobID']; ?></a></td>
+											<td><?php echo $job['jobDescription']; ?></td>
+											<td><?php echo $job['unitPrice']; ?></td>
+											<td><?php echo $job['status']; ?></td>
+											<td class="action-table-data">
+												<div class="edit-delete-action">
+													<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
+														<i data-feather="edit" class="feather-edit"></i>
+													</a>
+													<a class="confirm-text p-2" href="javascript:void(0);">
+														<i data-feather="trash-2" class="feather-trash-2"></i>
+													</a>
+												</div>
 
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Nike</td>
-										<td><span class="d-flex"><img src="images/brand-icon-03.png" alt=""></span></td>
-										<td>23 Jul 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Apple</td>
-										<td><span class="d-flex"><img src="images/brand-icon-04.png" alt=""></span></td>
-										<td>22 Aug 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Amazon</td>
-										<td><span class="d-flex"><img src="images/brand-icon-05.png" alt=""></span></td>
-										<td>21 Sep 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Woodmart</td>
-										<td><span class="d-flex"><img src="images/brand-icon-06.png" alt=""></span></td>
-										<td>20 Sep 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Versace</td>
-										<td><span class="d-flex"><img src="images/brand-icon-07.png" alt=""></span></td>
-										<td>20 Sep 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Lava</td>
-										<td><span class="d-flex"><img src="images/brand-icon-08.png" alt=""></span></td>
-										<td>20 Sep 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Bently</td>
-										<td><span class="d-flex"><img src="images/brand-icon-09.png" alt=""></span></td>
-										<td>20 Sep 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label class="checkboxs">
-												<input type="checkbox">
-												<span class="checkmarks"></span>
-											</label>
-										</td>
-										<td>Nilkamal</td>
-										<td><span class="d-flex"><img src="images/brand-icon-10.png" alt=""></span></td>
-										<td>20 Sep 2023</td>
-										<td><span class="badge badge-linesuccess">Active</span></td>
-										<td class="action-table-data">
-											<div class="edit-delete-action">
-												<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
-													<i data-feather="edit" class="feather-edit"></i>
-												</a>
-												<a class="confirm-text p-2" href="javascript:void(0);">
-													<i data-feather="trash-2" class="feather-trash-2"></i>
-												</a>
-											</div>
-										</td>
-									</tr>
+											</td>
+										</tr>
+									<?php } ?>
 								</tbody>
 							</table>
 						</div>
@@ -379,40 +168,52 @@
 					<div class="content">
 						<div class="modal-header border-0 custom-modal-header">
 							<div class="page-title">
-								<h4>Create Brand</h4>
+								<h4>Create Job</h4>
 							</div>
 							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">�</span>
+								<span aria-hidden="true"></span>
 							</button>
 						</div>
 						<div class="modal-body custom-modal-body new-employee-field">
-							<form action="brand-list.php">
+							<form action="php/createJob.php" method="post">
+								<?php
+								require_once 'php/databaseConnection.php';
+
+								$mysqli = db_connect();
+
+								$result = $mysqli->query("SELECT jobID FROM createJob ORDER BY ID DESC LIMIT 1");
+								$row = $result->fetch_row();
+
+								if ($row == null) {
+									$total_job_id = 1; // Initialize $total_group_id here for the case where no rows are found
+								} else {
+									$job_id = substr($row[0], 3); // Adjust substring length to skip "FGID"
+									$total_job_id = $job_id + 1; // Increment the numeric part of the group ID
+								}
+								?>
 								<div class="mb-3">
-									<label class="form-label">Brand</label>
-									<input type="text" class="form-control">
+									<label class="form-label">JOb ID</label>
+									<input type="text" name="jobID" class="form-control" value="JOB<?php echo $total_job_id ?>" readonly>
 								</div>
-								<label class="form-label">Logo</label>
-								<div class="profile-pic-upload mb-3">
-									<div class="profile-pic brand-pic">
-										<span><i data-feather="plus-circle" class="plus-down-add"></i> Add Image</span>
-									</div>
-									<div class="image-upload mb-0">
-										<input type="file">
-										<div class="image-uploads">
-											<h4>Change Image</h4>
-										</div>
-									</div>
+								<div class="mb-3">
+									<label class="form-label">Job Description</label>
+									<input type="text" name="jobDescription" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Unit Price</label>
+									<input type="text" name="unitPrice" class="form-control">
 								</div>
 								<div class="mb-0">
-									<div class="status-toggle modal-status d-flex justify-content-between align-items-center">
-										<span class="status-label">Status</span>
-										<input type="checkbox" id="user2" class="check" checked="">
-										<label for="user2" class="checktoggle"></label>
-									</div>
+									<label class="form-label">Status</label>
+									<select class="select" name="jobStatus">
+										<option value="">Select</option>
+										<option value="Active">Active</option>
+										<option value="Inactive">Inactive</option>
+									</select>
 								</div>
 								<div class="modal-footer-btn">
 									<button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
-									<button type="submit" class="btn btn-submit">Create Brand</button>
+									<button type="submit" class="btn btn-submit">Save Job</button>
 								</div>
 							</form>
 						</div>
@@ -434,7 +235,7 @@
 								<h4>Edit Brand</h4>
 							</div>
 							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">�</span>
+								<span aria-hidden="true"></span>
 							</button>
 						</div>
 						<div class="modal-body custom-modal-body new-employee-field">
