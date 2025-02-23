@@ -15,7 +15,7 @@
 		<?php include './includes/navbar.php'; ?>
 		<!-- /Header -->
 
-		<?php $page = 'brand-list';
+		<?php $page = 'dentPaint-list';
 		include './includes/sidebar.php'; ?>
 
 		<div class="page-wrapper">
@@ -23,8 +23,8 @@
 				<div class="page-header">
 					<div class="add-item d-flex">
 						<div class="page-title">
-							<h4>Brand</h4>
-							<h6>Manage your brands</h6>
+							<h4>Dent/ Paint Details</h4>
+							<h6>Manage your dent/ paint</h6>
 						</div>
 					</div>
 					<ul class="table-top-head">
@@ -45,7 +45,7 @@
 						</li>
 					</ul>
 					<div class="page-btn">
-						<a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-brand"><i data-feather="plus-circle" class="me-2"></i>Add New Job</a>
+						<a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-brand"><i data-feather="plus-circle" class="me-2"></i>Add New Dent/ Paint</a>
 					</div>
 				</div>
 				<!-- /product list -->
@@ -73,7 +73,7 @@
 							</div>
 						</div>
 						<!-- /Filter -->
-						<div class="card" id="filter_inputs">
+						<div hidden="card" id="filter_inputs">
 							<div class="card-body pb-0">
 								<div class="row">
 									<div class="col-lg-3 col-sm-6 col-12">
@@ -118,9 +118,9 @@
 							<table class="table  datanew">
 								<thead>
 									<tr>
-										<th>Job ID</th>
-										<th>Job Description</th>
-										<th>Unit Price</th>
+										<th>Dent/ Paint ID</th>
+										<th>Dent/ Paint Type</th>
+										<th>Dent/ Paint Charge</th>
 										<th>Status</th>
 										<th class="no-sort">Action</th>
 									</tr>
@@ -128,14 +128,14 @@
 								<tbody>
 									<?php
 
-									require_once 'php/jobDataFromDatabase.php';
-									foreach ($jobs as $job) {
+									require_once 'php/dentDataFromDatabase.php';
+									foreach ($dentTypes as $dentType) {
 									?>
 										<tr>
-											<td><a href="#" class="link-primary"><?php echo $job['jobID']; ?></a></td>
-											<td><?php echo $job['jobDescription']; ?></td>
-											<td><?php echo $job['unitPrice']; ?></td>
-											<td><?php echo $job['status']; ?></td>
+											<td><a href="#" class="link-primary"><?php echo $dentType['dentID']; ?></a></td>
+											<td><?php echo $dentType['dentType']; ?></td>
+											<td><?php echo $dentType['dentCharge']; ?></td>
+											<td><?php echo $dentType['status']; ?></td>
 											<td class="action-table-data">
 												<div class="edit-delete-action">
 													<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
@@ -160,7 +160,7 @@
 	</div>
 	<!-- /Main Wrapper -->
 
-	<!-- Add Brand -->
+	<!-- Add Purpose -->
 	<div class="modal fade" id="add-brand">
 		<div class="modal-dialog modal-dialog-centered custom-modal-two">
 			<div class="modal-content">
@@ -168,44 +168,44 @@
 					<div class="content">
 						<div class="modal-header border-0 custom-modal-header">
 							<div class="page-title">
-								<h4>Create Job</h4>
+								<h4>Create Dent/ Paint Type</h4>
 							</div>
 							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true"></span>
 							</button>
 						</div>
 						<div class="modal-body custom-modal-body new-employee-field">
-							<form action="php/createJob.php" method="post">
+							<form action="php/dentPaint.php" method="post">
 								<?php
 								require_once 'php/databaseConnection.php';
 
 								$mysqli = db_connect();
 
-								$result = $mysqli->query("SELECT jobID FROM createJob ORDER BY ID DESC LIMIT 1");
+								$result = $mysqli->query("SELECT dentID FROM dentPaintDetails ORDER BY ID DESC LIMIT 1");
 								$row = $result->fetch_row();
 
 								if ($row == null) {
-									$total_job_id = 1; // Initialize $total_group_id here for the case where no rows are found
+									$total_dent_id = 1; // Initialize $total_group_id here for the case where no rows are found
 								} else {
-									$job_id = substr($row[0], 3); // Adjust substring length to skip "FGID"
-									$total_job_id = $job_id + 1; // Increment the numeric part of the group ID
+									$dent_id = substr($row[0], 3); // Adjust substring length to skip "FGID"
+									$total_dent_id = $dent_id + 1; // Increment the numeric part of the group ID
 								}
 								?>
 								<div class="mb-3">
-									<label class="form-label">JOb ID</label>
-									<input type="text" name="jobID" class="form-control" value="JOB<?php echo $total_job_id ?>" readonly>
+									<label class="form-label">Dent/ Paint ID</label>
+									<input type="text" name="dentID" class="form-control" value="DNP<?php echo $total_dent_id ?>" readonly>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Job Description</label>
-									<input type="text" name="jobDescription" class="form-control">
+									<label class="form-label">Dent/ Paint Type</label>
+									<input type="text" name="dentType" class="form-control">
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Unit Price</label>
-									<input type="text" name="unitPrice" class="form-control">
+									<label class="form-label">Dent/ Paint Charge</label>
+									<input type="text" name="dentCharge" class="form-control">
 								</div>
 								<div class="mb-0">
 									<label class="form-label">Status</label>
-									<select class="select" name="jobStatus">
+									<select class="select" name="dentStatus">
 										<option value="">Select</option>
 										<option value="Active">Active</option>
 										<option value="Inactive">Inactive</option>
@@ -213,7 +213,7 @@
 								</div>
 								<div class="modal-footer-btn">
 									<button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
-									<button type="submit" class="btn btn-submit">Save Job</button>
+									<button type="submit" class="btn btn-submit">Save Dent/ Paint</button>
 								</div>
 							</form>
 						</div>
@@ -222,7 +222,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- /Add Brand -->
+	<!-- /Add Purpose -->
 
 	<!-- Edit Brand -->
 	<div class="modal fade" id="edit-brand">

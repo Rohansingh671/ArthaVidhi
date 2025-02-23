@@ -15,7 +15,7 @@
 		<?php include './includes/navbar.php'; ?>
 		<!-- /Header -->
 
-		<?php $page = 'brand-list';
+		<?php $page = 'spare-parts';
 		include './includes/sidebar.php'; ?>
 
 		<div class="page-wrapper">
@@ -23,8 +23,8 @@
 				<div class="page-header">
 					<div class="add-item d-flex">
 						<div class="page-title">
-							<h4>Brand</h4>
-							<h6>Manage your brands</h6>
+							<h4>Spare Parts Details</h4>
+							<h6>Manage your spare parts</h6>
 						</div>
 					</div>
 					<ul class="table-top-head">
@@ -45,7 +45,7 @@
 						</li>
 					</ul>
 					<div class="page-btn">
-						<a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-brand"><i data-feather="plus-circle" class="me-2"></i>Add New Job</a>
+						<a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-brand"><i data-feather="plus-circle" class="me-2"></i>Add New SpareParts</a>
 					</div>
 				</div>
 				<!-- /product list -->
@@ -73,7 +73,7 @@
 							</div>
 						</div>
 						<!-- /Filter -->
-						<div class="card" id="filter_inputs">
+						<div hidden="card" id="filter_inputs">
 							<div class="card-body pb-0">
 								<div class="row">
 									<div class="col-lg-3 col-sm-6 col-12">
@@ -118,9 +118,9 @@
 							<table class="table  datanew">
 								<thead>
 									<tr>
-										<th>Job ID</th>
-										<th>Job Description</th>
-										<th>Unit Price</th>
+										<th>Spare ID</th>
+										<th>Spare Parts Type</th>
+										<th>Spare Parts Charge</th>
 										<th>Status</th>
 										<th class="no-sort">Action</th>
 									</tr>
@@ -128,14 +128,14 @@
 								<tbody>
 									<?php
 
-									require_once 'php/jobDataFromDatabase.php';
-									foreach ($jobs as $job) {
+									require_once 'php/spareDataFromDatabase.php';
+									foreach ($spareTypes as $spareType) {
 									?>
 										<tr>
-											<td><a href="#" class="link-primary"><?php echo $job['jobID']; ?></a></td>
-											<td><?php echo $job['jobDescription']; ?></td>
-											<td><?php echo $job['unitPrice']; ?></td>
-											<td><?php echo $job['status']; ?></td>
+											<td><a href="#" class="link-primary"><?php echo $spareType['spareID']; ?></a></td>
+											<td><?php echo $spareType['spareType']; ?></td>
+											<td><?php echo $spareType['spareCharge']; ?></td>
+											<td><?php echo $spareType['status']; ?></td>
 											<td class="action-table-data">
 												<div class="edit-delete-action">
 													<a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-brand">
@@ -160,7 +160,7 @@
 	</div>
 	<!-- /Main Wrapper -->
 
-	<!-- Add Brand -->
+	<!-- Add Purpose -->
 	<div class="modal fade" id="add-brand">
 		<div class="modal-dialog modal-dialog-centered custom-modal-two">
 			<div class="modal-content">
@@ -168,44 +168,44 @@
 					<div class="content">
 						<div class="modal-header border-0 custom-modal-header">
 							<div class="page-title">
-								<h4>Create Job</h4>
+								<h4>Create Spare Parts</h4>
 							</div>
 							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true"></span>
 							</button>
 						</div>
 						<div class="modal-body custom-modal-body new-employee-field">
-							<form action="php/createJob.php" method="post">
+							<form action="php/spareParts.php" method="post">
 								<?php
 								require_once 'php/databaseConnection.php';
 
 								$mysqli = db_connect();
 
-								$result = $mysqli->query("SELECT jobID FROM createJob ORDER BY ID DESC LIMIT 1");
+								$result = $mysqli->query("SELECT spareID FROM sparePartsDetails ORDER BY ID DESC LIMIT 1");
 								$row = $result->fetch_row();
 
 								if ($row == null) {
-									$total_job_id = 1; // Initialize $total_group_id here for the case where no rows are found
+									$total_spare_id = 1; // Initialize $total_group_id here for the case where no rows are found
 								} else {
-									$job_id = substr($row[0], 3); // Adjust substring length to skip "FGID"
-									$total_job_id = $job_id + 1; // Increment the numeric part of the group ID
+									$spare_id = substr($row[0], 3); // Adjust substring length to skip "FGID"
+									$total_spare_id = $spare_id + 1; // Increment the numeric part of the group ID
 								}
 								?>
 								<div class="mb-3">
-									<label class="form-label">JOb ID</label>
-									<input type="text" name="jobID" class="form-control" value="JOB<?php echo $total_job_id ?>" readonly>
+									<label class="form-label">Spare ID</label>
+									<input type="text" name="spareID" class="form-control" value="SAP<?php echo $total_spare_id ?>" readonly>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Job Description</label>
-									<input type="text" name="jobDescription" class="form-control">
+									<label class="form-label">Spare Parts Type</label>
+									<input type="text" name="spareType" class="form-control">
 								</div>
 								<div class="mb-3">
-									<label class="form-label">Unit Price</label>
-									<input type="text" name="unitPrice" class="form-control">
+									<label class="form-label">Spare Parts Charge</label>
+									<input type="text" name="spareCharge" class="form-control">
 								</div>
 								<div class="mb-0">
 									<label class="form-label">Status</label>
-									<select class="select" name="jobStatus">
+									<select class="select" name="spareStatus">
 										<option value="">Select</option>
 										<option value="Active">Active</option>
 										<option value="Inactive">Inactive</option>
@@ -213,7 +213,7 @@
 								</div>
 								<div class="modal-footer-btn">
 									<button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
-									<button type="submit" class="btn btn-submit">Save Job</button>
+									<button type="submit" class="btn btn-submit">Save SpareParts</button>
 								</div>
 							</form>
 						</div>
@@ -222,7 +222,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- /Add Brand -->
+	<!-- /Add Purpose -->
 
 	<!-- Edit Brand -->
 	<div class="modal fade" id="edit-brand">

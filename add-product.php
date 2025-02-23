@@ -27,7 +27,7 @@
 					<ul class="table-top-head">
 						<li>
 							<div class="page-btn">
-								<a href="product-list.php" class="btn btn-secondary"><i data-feather="arrow-left" class="me-2"></i>Back to Product</a>
+								<a href="product-list.php" class="btn btn-secondary"><i data-feather="arrow-left" class="me-2"></i>Back to JobCards</a>
 							</div>
 						</li>
 						<li>
@@ -38,6 +38,21 @@
 				</div>
 				<!-- /add -->
 				<form action="php/addJobCard.php" method="post" enctype="multipart/form-data">
+					<?php
+					require_once 'php/databaseConnection.php';
+
+					$mysqli = db_connect();
+
+					$result = $mysqli->query("SELECT jobNumber FROM jobCard ORDER BY ID DESC LIMIT 1");
+					$row = $result->fetch_row();
+
+					if ($row == null) {
+						$total_job_number = 1; // Initialize $total_group_id here for the case where no rows are found
+					} else {
+						$job_number = substr($row[0], 4); // Adjust substring length to skip "FGID"
+						$total_job_number = $job_number + 1; // Increment the numeric part of the group ID
+					}
+					?>
 					<div class="card">
 						<div class="card-body add-product pb-0">
 							<div class="accordion-card-one accordion" id="accordionExample">
@@ -57,7 +72,7 @@
 												<div class="col-lg-3 col-sm-6 col-12">
 													<div class="input-blocks add-product list">
 														<label class="form-label">Job Number</label>
-														<input type="text" class="form-control" name="jobNumber" placeholder="Enter Job Number">
+														<input type="text" class="form-control" id="jbid" name="jobNumber" value="JOBN<?php echo $total_job_number ?>" readonly>
 														<button type="submit" class="btn btn-primaryadd">
 															Generate Code
 														</button>
@@ -71,8 +86,8 @@
 												</div>
 												<div class="col-lg-3 col-sm-6 col-12">
 													<div class="mb-3 add-product">
-														<label class="form-label">Register Number</label>
-														<input type="text" name="registerNumber" class="form-control">
+														<label class="form-label">Registration Number</label>
+														<input type="text" name="registerNumber" class="form-control" placeholder="Enter Vehicle Reg. No.">
 													</div>
 												</div>
 												<div class="col-lg-3 col-sm-6 col-12">
@@ -91,465 +106,659 @@
 												<div class="col-lg-3 col-sm-6 col-12">
 													<div class="mb-3 add-product">
 														<label class="form-label">Millage</label>
-														<input type="text" name="millage" class="form-control"">
+														<input type="text" name="millage" class="form-control"" placeholder=" Enter Vehicle Millage in km/hr">
 													</div>
 												</div>
 												<div class=" col-lg-3 col-sm-6 col-12">
-														<div class="mb-3 add-product">
-															<label class="form-label">Vehicle Brand</label>
-															<input type="text" name="vehicleBrand" class="form-control">
+													<div class="mb-3 add-product">
+														<label class="form-label">Vehicle Brand</label>
+														<input type="text" name="vehicleBrand" class="form-control" placeholder="Enter Vehicle Brand">
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Vehicle Model</label>
+														<input type="text" name="vehicleModel" class="form-control" placeholder="Enter Vehicle Model">
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Vehicle Colour</label>
+														<input type="text" name="vehicleColour" class="form-control" placeholder="Enter Vehicle Colour">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Engine No.</label>
+														<input type="text" name="engineNumber" class="form-control"" placeholder=" Enter Vehicle Engine No.">
+													</div>
+												</div>
+												<div class=" col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">VIN No.</label>
+														<input type="text" name="vinNumber" class="form-control" placeholder="Enter Vehicle VIN No.">
+													</div>
+												</div>
+												<div class=" col-lg-4 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Purpose Visit</label>
+														<?php require_once 'php/purposeDataFromDatabase.php'; ?>
+														<select class="select" name="purpose[]">
+															<option value="">Select Purpose Visit</option>
+															<?php
+															foreach ($purposes as $purpose) {
+																echo "<option value='" . htmlspecialchars($purpose['purpose']) . "'>" . htmlspecialchars($purpose['purpose']) . "</option>";
+															}
+															?>
+														</select>
+													</div>
+												</div>
+												<!-- Fuel/Battery Selection -->
+												<div class="col-lg-2 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Select Type</label>
+														<div class="d-flex gap-3">
+															<input type="radio" name="fuelBattery" id="fuelOption" value="fuel" checked>
+															<label for="fuelOption">Fuel</label>
+															<input type="radio" name="fuelBattery" id="batteryOption" value="battery">
+															<label for="batteryOption">Battery</label>
 														</div>
 													</div>
-													<div class="col-lg-3 col-sm-6 col-12">
-														<div class="mb-3 add-product">
-															<label class="form-label">Vehicle Model</label>
-															<input type="text" name="vehicleModel" class="form-control">
+												</div>
+												<div class=" col-lg-4 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Customer Name</label>
+														<input type="text" name="customerName" class="form-control" placeholder="Enter Customer Name">
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Contact Number</label>
+														<input type="text" name="contactNumber" class="form-control" placeholder="Enter Customer Contact">
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Address</label>
+														<input type="text" name="customerAddress" class="form-control" placeholder="Enter Customer Address">
+													</div>
+												</div>
+												<div class="col-lg-2 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Fuel/Battery Level</label>
+														<div class="fuel-battery-indicator">
+															<span>E</span>
+															<input type="range" class="form-range" min="0" max="60" step="1" value="30" id="fuelBatteryLevel" oninput="updateHiddenValue()">
+															<span>F</span>
+															<span id="fuelBatteryValue">30L</span>
 														</div>
 													</div>
-													<div class="col-lg-3 col-sm-6 col-12">
-														<div class="mb-3 add-product">
-															<label class="form-label">Vehicle Colour</label>
-															<input type="text" name="vehicleColour" class="form-control">
+												</div>
+												<!-- Hidden input to store the selected value for submission -->
+												<input type="hidden" name="powerValue" id="powerValue" value="30">
+											</div>
+											<!-- Editor -->
+											<div class="row">
+												<div class="col-lg-6">
+													<div class="input-blocks summer-description-box transfer mb-3">
+														<label>Reported Defects/Demanded Repairs</label>
+														<textarea class="form-control h-100" name="reportedDefects" rows="5"></textarea>
+														<p class="mt-1">Maximum 60 Characters</p>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="input-blocks summer-description-box transfer mb-3">
+														<label>Completed Actions</label>
+														<textarea class="form-control h-100" name="completedAction" rows="5"></textarea>
+														<p class="mt-1">Maximum 60 Characters</p>
+													</div>
+												</div>
+											</div>
+											<!-- /Editor -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-card-one accordion" id="accordionExample2">
+								<div class="accordion-item">
+									<div class="accordion-header" id="headingTwo">
+										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+											<div class="text-editor add-list">
+												<div class="addproduct-icon list icon">
+													<h5><i data-feather="life-buoy" class="add-info"></i><span>Lubricant Details</span></h5>
+													<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+										<div class="accordion-body">
+											<div class="input-blocks add-products">
+												<div class="row">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Lubricant Type</label>
+															<input type="text" class="form-control" placeholder="Search Lubricant Type">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Quantity</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Total Price</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
 														</div>
 													</div>
 												</div>
 												<div class="row">
-
-													<div class="col-lg-5 col-sm-6 col-12">
-														<div class="mb-3 add-product">
-															<label class="form-label">Engine No.</label>
-															<input type="text" name="engineNumber" class="form-control"">
-													</div>
-												</div>
-												<div class=" col-lg-5 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">VIN No.</label>
-																<input type="text" name="vinNumber" class="form-control">
-															</div>
-														</div>
-														<!-- Fuel/Battery Selection -->
-														<div class="col-lg-2 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Select Type</label>
-																<div class="d-flex gap-3">
-																	<input type="radio" name="fuelBattery" id="fuelOption" value="fuel" checked>
-																	<label for="fuelOption">Fuel</label>
-																	<input type="radio" name="fuelBattery" id="batteryOption" value="battery">
-																	<label for="batteryOption">Battery</label>
-																</div>
-															</div>
-														</div>
-														<div class=" col-lg-4 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Customer Name</label>
-																<input type="text" name="customerName" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-3 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Contact Number</label>
-																<input type="text" name="contactNumber" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-3 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Address</label>
-																<input type="text" name="customerAddress" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-2 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Fuel/Battery Level</label>
-																<div class="fuel-battery-indicator">
-																	<span>E</span>
-																	<input type="range" class="form-range" min="0" max="60" step="1" value="30" id="fuelBatteryLevel" oninput="updateHiddenValue()">
-																	<span>F</span>
-																	<span id="fuelBatteryValue">30L</span>
-																</div>
-															</div>
-														</div>
-														<!-- Hidden input to store the selected value for submission -->
-														<input type="hidden" name="powerValue" id="powerValue" value="30">
-													</div>
-													<!-- Editor -->
-													<div class="row">
-														<div class="col-lg-6">
-															<div class="input-blocks summer-description-box transfer mb-3">
-																<label>Reported Defects/Demanded Repairs</label>
-																<textarea class="form-control h-100" name="reportedDefects" rows="5"></textarea>
-																<p class="mt-1">Maximum 60 Characters</p>
-															</div>
-														</div>
-														<div class="col-lg-6">
-															<div class="input-blocks summer-description-box transfer mb-3">
-																<label>Completed Actions</label>
-																<textarea class="form-control h-100" name="completedAction" rows="5"></textarea>
-																<p class="mt-1">Maximum 60 Characters</p>
-															</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Lubricant Type</label>
+															<input type="text" class="form-control" placeholder="Enter Custom Lubricant Type">
 														</div>
 													</div>
-													<!-- /Editor -->
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Lubricant Amount</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="accordion-card-one accordion" id="accordionExample2">
-										<div class="accordion-item">
-											<div class="accordion-header" id="headingTwo">
-												<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
-													<div class="text-editor add-list">
-														<div class="addproduct-icon list icon">
-															<h5><i data-feather="life-buoy" class="add-info"></i><span>Pricing & Stocks</span></h5>
-															<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+								</div>
+							</div>
+							<div class="accordion-card-one accordion" id="accordionExample2">
+								<div class="accordion-item">
+									<div class="accordion-header" id="headingTwo">
+										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+											<div class="text-editor add-list">
+												<div class="addproduct-icon list icon">
+													<h5><i data-feather="life-buoy" class="add-info"></i><span>Labour Code Details</span></h5>
+													<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+									<div class="accordion-body">
+											<div class="input-blocks add-products">
+												<div class="row">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Labour Code</label>
+															<input type="text" class="form-control" placeholder="Search Code">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Quantity</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Total Price</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Labour Code</label>
+															<input type="text" class="form-control" placeholder="Custom Labour Code">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Labour Amount</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
 														</div>
 													</div>
 												</div>
 											</div>
-											<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
-												<div class="accordion-body">
-													<div class="input-blocks add-products">
-														<label class="d-block">Job Entry</label>
-														<div class="row">
-															<?php
-															require_once 'php/databaseConnection.php';
-															$mysqli = db_connect();
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-card-one accordion" id="accordionExample2">
+								<div class="accordion-item">
+									<div class="accordion-header" id="headingTwo">
+										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+											<div class="text-editor add-list">
+												<div class="addproduct-icon list icon">
+													<h5><i data-feather="life-buoy" class="add-info"></i><span>Dent/ Paint Details</span></h5>
+													<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+									<div class="accordion-body">
+											<div class="input-blocks add-products">
+												<div class="row">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Dent/ Paint Type</label>
+															<input type="text" class="form-control" placeholder="Select Parts">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Quantity</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Total Price</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Dent/ Paint Name</label>
+															<input type="text" class="form-control" placeholder="Custom Dent/ Paint Name">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Dent/ Paint Amount</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-card-one accordion" id="accordionExample2">
+								<div class="accordion-item">
+									<div class="accordion-header" id="headingTwo">
+										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+											<div class="text-editor add-list">
+												<div class="addproduct-icon list icon">
+													<h5><i data-feather="life-buoy" class="add-info"></i><span>Spare Parts Details</span></h5>
+													<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+									<div class="accordion-body">
+											<div class="input-blocks add-products">
+												<div class="row">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Spare Parts Type</label>
+															<input type="text" class="form-control" placeholder="Select Parts">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Quantity</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Total Price</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+														<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Spare Parts</label>
+															<input type="text" class="form-control" placeholder="Custom Spare Parts">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Custom Spare Parts Amount</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="text" class="form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="text" class="form-control" value="0" disabled>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
-															$selectedJobs = ""; // Default value
+							<div class="accordion-card-one accordion" id="accordionExample4">
+								<div class="accordion-item">
+									<div class="accordion-header" id="headingFour">
+										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour">
+											<div class="text-editor add-list">
+												<div class="addproduct-icon list">
+													<h5><i data-feather="list" class="add-info"></i><span>Custom Fields</span></h5>
+													<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample4">
+										<div class="accordion-body">
+											<div class="text-editor add-list add">
+												<div class="row">
+													<div class="mb-3 car-body-container">
+														<h5 class="mb-3">Vehicle Body Report (Mark P-Paint, D-Dent, S-Scratch)</h5>
+														<h6><span class="text-primary">[Note: </span> It can't be edited further.</h6>
 
-															// Fetch the latest selected jobs from the table
-															$stmt = $mysqli->prepare("SELECT selectedJobs FROM multipleJobSelected ORDER BY ID DESC LIMIT 1");
-															if ($stmt) {
-																$stmt->execute();
-																$stmt->store_result();
-																$stmt->bind_result($selectedJobs);
-																$stmt->fetch();
-																$stmt->close();
+														<div class="car-body-diagram">
+															<canvas id="carCanvas"></canvas>
+														</div>
+
+														<div class="marker-options">
+															<button class="marker-btn" data-type="P">P - Paint</button>
+															<button class="marker-btn" data-type="D">D - Dent</button>
+															<button class="marker-btn" data-type="S">S - Scratch</button>
+															<button class="marker-btn clear-markers">Clear Markers</button>
+														</div>
+
+													</div>
+												</div>
+
+												<style>
+													.car-body-container {
+														text-align: center;
+													}
+
+													.car-body-diagram {
+														position: relative;
+														display: inline-block;
+													}
+
+													.car-body-diagram img {
+														width: 100%;
+														max-width: 500px;
+													}
+
+													.marker {
+														position: absolute;
+														cursor: pointer;
+														background: red;
+														color: white;
+														font-size: 12px;
+														font-weight: bold;
+														padding: 3px;
+														border-radius: 50%;
+														transform: translate(-50%, -50%);
+													}
+
+													.marker-options {
+														margin-top: 10px;
+													}
+
+													.marker-btn {
+														margin: 5px;
+														padding: 5px 10px;
+														cursor: pointer;
+														border: none;
+														background-color: #007bff;
+														color: white;
+														border-radius: 5px;
+													}
+
+													.marker-btn:hover {
+														background-color: #0056b3;
+													}
+
+													.clear-markers {
+														background-color: red;
+													}
+
+													.clear-markers:hover {
+														background-color: darkred;
+													}
+												</style>
+
+												<script>
+													document.addEventListener("DOMContentLoaded", function() {
+														const carCanvas = document.getElementById("carCanvas");
+														const ctx = carCanvas.getContext("2d");
+														const carImage = new Image();
+														carImage.src = "./images/car-outlines.avif";
+
+														let selectedMarkerType = "";
+														let markersData = [];
+
+														carImage.onload = function() {
+															carCanvas.width = carImage.width;
+															carCanvas.height = carImage.height;
+															ctx.drawImage(carImage, 0, 0);
+														};
+
+														document.querySelectorAll(".marker-btn").forEach(button => {
+															button.addEventListener("click", function(event) {
+																event.preventDefault();
+																selectedMarkerType = this.getAttribute("data-type");
+															});
+														});
+
+														carCanvas.addEventListener("click", function(event) {
+															if (!selectedMarkerType) return;
+
+															const rect = carCanvas.getBoundingClientRect();
+															const x = event.clientX - rect.left;
+															const y = event.clientY - rect.top;
+
+															ctx.fillStyle = "red";
+															ctx.font = "bold 14px Arial";
+															ctx.fillText(selectedMarkerType, x, y);
+
+															markersData.push({
+																type: selectedMarkerType,
+																x,
+																y
+															});
+														});
+
+														document.querySelector(".clear-markers").addEventListener("click", function() {
+															ctx.clearRect(0, 0, carCanvas.width, carCanvas.height);
+															ctx.drawImage(carImage, 0, 0);
+															markersData = [];
+														});
+
+														document.getElementById("saveDataButton").addEventListener("click", function(event) {
+															event.preventDefault();
+
+															// Ensure the image is drawn
+															ctx.drawImage(carImage, 0, 0);
+
+															// Capture the canvas image
+															const markedImage = carCanvas.toDataURL("image/png");
+
+															if (!markedImage) {
+																alert("Error: No image data found.");
+																return;
 															}
 
-															$mysqli->close();
-															?>
+															console.log("Sending Image Data:", markedImage.substring(0, 100));
 
-															<div class="col-lg-6 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<div class="add-newplus">
-																		<label> Selected Job Description</label>
-																		<a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add-brand"><i data-feather="plus-circle" class="plus-down-add"></i><span>Add New</span></a>
-																	</div>
-																	<input type="text" class="form-control" value="<?php echo htmlspecialchars($selectedJobs); ?>" readonly>
-																</div>
-															</div>
-															<div class="col-lg-3 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<label>Total Amount</label>
-																	<input type="text" class="form-control" readonly>
-																</div>
-															</div>
-															<div class="col-lg-3 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<label>Discount</label>
-																	<input type="text" class="form-control">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-lg-3 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<label>VAT Percent</label>
-																	<input type="text" class="form-control" value="13 %" readonly>
-																</div>
-															</div>
-															<div class="col-lg-3 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<label>Grand Total</label>
-																	<input type="text" class="form-control" readonly>
-																</div>
-															</div>
-															<div class="col-lg-3 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<label>Total Paid</label>
-																	<input type="text" class="form-control">
-																</div>
-															</div>
-															<div class="col-lg-3 col-sm-6 col-12">
-																<div class="input-blocks add-product">
-																	<label>Pending Amount</label>
-																	<input type="text" class="form-control" readonly>
-																</div>
-															</div>
-														</div>
+															fetch("save_vehicle_report.php", {
+																	method: "POST",
+																	body: JSON.stringify({
+																		image: markedImage
+																	}),
+																	headers: {
+																		"Content-Type": "application/json"
+																	}
+																})
+																.then(response => response.json())
+																.then(data => {
+																	console.log("Response from server:", data);
+																	alert(data.message);
+																})
+																.catch(error => console.error("Error:", error));
+														});
+													});
+												</script>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-card-one accordion" id="accordionExample">
+								<!-- here -->
+								<div class="accordion-item">
+									<div class="accordion-header" id="headingOne">
+										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
+											<div class="addproduct-icon">
+												<h5><i data-feather="info" class="add-info"></i><span>Privacy Information</span></h5>
+												<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
+											</div>
+										</div>
+									</div>
+									<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<div class="row">
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Contact Person</label>
+														<input type="text" name="contactPerson" class="form-control" placeholder="Enter Contact Person">
 													</div>
 												</div>
-											</div>
-
-											<!-- Add Job -->
-											<div class="modal fade" id="add-brand">
-												<div class="modal-dialog modal-dialog-centered custom-modal-two">
-													<div class="modal-content">
-														<div class="page-wrapper-new p-0">
-															<div class="content">
-																<div class="modal-header border-0 custom-modal-header">
-																	<div class="page-title">
-																		<h4>Create Job</h4>
-																	</div>
-																	<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true"></span>
-																	</button>
-																</div>
-																<div class="modal-body custom-modal-body new-employee-field">
-																	<!-- Job Selection Form -->
-																	<form id="multipleJobForm">
-																		<div class="mb-3">
-																			<label class="form-label">Select Job Description</label>
-																			<?php require_once 'php/jobDataFromDatabase.php'; ?>
-																			<select class="select" name="job[]" multiple>
-																				<option value="">Select</option>
-																				<?php
-																				foreach ($jobs as $job) {
-																					echo "<option value='" . htmlspecialchars($job['jobDescription']) . "'>" . htmlspecialchars($job['jobDescription']) . "</option>";
-																				}
-																				?>
-																			</select>
-																		</div>
-																		<div class="modal-footer-btn">
-																			<button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
-																			<button type="button" id="submitMultipleJobs" class="btn btn-submit">Save Job</button>
-																		</div>
-																	</form>
-
-																</div>
-															</div>
-														</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Contact Number</label>
+														<input type="text" name="personContactNumber" class="form-control" placeholder="Enter Person's Contact Number">
 													</div>
 												</div>
-											</div>
-											<!-- /Add Job -->
-
-											<div class="accordion-card-one accordion" id="accordionExample4">
-												<div class="accordion-item">
-													<div class="accordion-header" id="headingFour">
-														<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour">
-															<div class="text-editor add-list">
-																<div class="addproduct-icon list">
-																	<h5><i data-feather="list" class="add-info"></i><span>Custom Fields</span></h5>
-																	<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
-																</div>
-															</div>
-														</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Technician Name</label>
+														<input type="text" name="technicianName" class="form-control" placeholder="Enter Technician Name">
 													</div>
-													<div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample4">
-														<div class="accordion-body">
-															<div class="text-editor add-list add">
-																<div class="row">
-																	<div class="mb-3 car-body-container">
-																		<h5 class="mb-3">Vehicle Body Report (Mark P-Paint, D-Dent, S-Scratch)</h5>
-																		<h6><span class="text-primary">[Note: </span> It can't be edited further.</h6>
-
-																		<div class="car-body-diagram">
-																			<canvas id="carCanvas"></canvas>
-																		</div>
-
-																		<div class="marker-options">
-																			<button class="marker-btn" data-type="P">P - Paint</button>
-																			<button class="marker-btn" data-type="D">D - Dent</button>
-																			<button class="marker-btn" data-type="S">S - Scratch</button>
-																			<button class="marker-btn clear-markers">Clear Markers</button>
-																		</div>
-
-																	</div>
-																</div>
-
-																<style>
-																	.car-body-container {
-																		text-align: center;
-																	}
-
-																	.car-body-diagram {
-																		position: relative;
-																		display: inline-block;
-																	}
-
-																	.car-body-diagram img {
-																		width: 100%;
-																		max-width: 500px;
-																	}
-
-																	.marker {
-																		position: absolute;
-																		cursor: pointer;
-																		background: red;
-																		color: white;
-																		font-size: 12px;
-																		font-weight: bold;
-																		padding: 3px;
-																		border-radius: 50%;
-																		transform: translate(-50%, -50%);
-																	}
-
-																	.marker-options {
-																		margin-top: 10px;
-																	}
-
-																	.marker-btn {
-																		margin: 5px;
-																		padding: 5px 10px;
-																		cursor: pointer;
-																		border: none;
-																		background-color: #007bff;
-																		color: white;
-																		border-radius: 5px;
-																	}
-
-																	.marker-btn:hover {
-																		background-color: #0056b3;
-																	}
-
-																	.clear-markers {
-																		background-color: red;
-																	}
-
-																	.clear-markers:hover {
-																		background-color: darkred;
-																	}
-																</style>
-
-																<script>
-																	document.addEventListener("DOMContentLoaded", function() {
-																		const carCanvas = document.getElementById("carCanvas");
-																		const ctx = carCanvas.getContext("2d");
-																		const carImage = new Image();
-																		carImage.src = "./images/car-outlines.avif";
-
-																		let selectedMarkerType = "";
-																		let markersData = [];
-
-																		carImage.onload = function() {
-																			carCanvas.width = carImage.width;
-																			carCanvas.height = carImage.height;
-																			ctx.drawImage(carImage, 0, 0);
-																		};
-
-																		document.querySelectorAll(".marker-btn").forEach(button => {
-																			button.addEventListener("click", function(event) {
-																				event.preventDefault();
-																				selectedMarkerType = this.getAttribute("data-type");
-																			});
-																		});
-
-																		carCanvas.addEventListener("click", function(event) {
-																			if (!selectedMarkerType) return;
-
-																			const rect = carCanvas.getBoundingClientRect();
-																			const x = event.clientX - rect.left;
-																			const y = event.clientY - rect.top;
-
-																			ctx.fillStyle = "red";
-																			ctx.font = "bold 14px Arial";
-																			ctx.fillText(selectedMarkerType, x, y);
-
-																			markersData.push({
-																				type: selectedMarkerType,
-																				x,
-																				y
-																			});
-																		});
-
-																		document.querySelector(".clear-markers").addEventListener("click", function() {
-																			ctx.clearRect(0, 0, carCanvas.width, carCanvas.height);
-																			ctx.drawImage(carImage, 0, 0);
-																			markersData = [];
-																		});
-
-																		document.getElementById("saveDataButton").addEventListener("click", function(event) {
-																			event.preventDefault();
-
-																			// Ensure the image is drawn
-																			ctx.drawImage(carImage, 0, 0);
-
-																			// Capture the canvas image
-																			const markedImage = carCanvas.toDataURL("image/png");
-
-																			if (!markedImage) {
-																				alert("Error: No image data found.");
-																				return;
-																			}
-
-																			console.log("Sending Image Data:", markedImage.substring(0, 100));
-
-																			fetch("save_vehicle_report.php", {
-																					method: "POST",
-																					body: JSON.stringify({
-																						image: markedImage
-																					}),
-																					headers: {
-																						"Content-Type": "application/json"
-																					}
-																				})
-																				.then(response => response.json())
-																				.then(data => {
-																					console.log("Response from server:", data);
-																					alert(data.message);
-																				})
-																				.catch(error => console.error("Error:", error));
-																		});
-																	});
-																</script>
-
-															</div>
-														</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Supervisor</label>
+														<input type="text" name="supervisor" class="form-control" placeholder="Enter Supervisor Name">
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="accordion-card-one accordion" id="accordionExample">
-										<!-- here -->
-										<div class="accordion-item">
-											<div class="accordion-header" id="headingOne">
-												<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
-													<div class="addproduct-icon">
-														<h5><i data-feather="info" class="add-info"></i><span>Privacy Information</span></h5>
-														<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
-													</div>
-												</div>
-											</div>
-											<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-												<div class="accordion-body">
-													<div class="row">
-														<div class="col-lg-3 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Contact Person</label>
-																<input type="text" name="contactPerson" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-3 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Contact Number</label>
-																<input type="text" name="personContactNumber" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-3 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Technician Name</label>
-																<input type="text" name="technicianName" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-3 col-sm-6 col-12">
-															<div class="mb-3 add-product">
-																<label class="form-label">Supervisor</label>
-																<input type="text" name="supervisor" class="form-control">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-12">
-										<div class="btn-addproduct mb-4">
-											<button type="button" class="btn btn-cancel me-2">Cancel</button>
-											<button type="submit" class="btn btn-submit">Save Product</button>
-										</div>
-									</div>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<div class="btn-addproduct mb-4">
+									<button type="button" class="btn btn-cancel me-2">Cancel</button>
+									<button type="submit" class="btn btn-submit">Save Product</button>
+								</div>
+							</div>
 				</form>
 				<!-- /add -->
 
