@@ -46,6 +46,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
     <!-- Mobile CSS-->
     <link rel="stylesheet" href="css/intlTelInput.css">
     <link rel="stylesheet" href="css/demo.css">
@@ -59,5 +60,8 @@
 
     <!-- Map CSS -->
     <link rel="stylesheet" href="css/jquery-jvectormap-2.0.5.css">
+
+    <!-- SweetAlert2 JS -->
+    <script src="js/sweetalerts.min.js"></script>
 
 </head>

@@ -36,202 +36,9 @@
 					</ul>
 
 				</div>
-				<form action="php/addJobCard.php" method="post" enctype="multipart/form-data">
-					<?php
-					require_once 'php/databaseConnection.php';
-
-					$mysqli = db_connect();
-
-					$result = $mysqli->query("SELECT jobNumber FROM jobCard ORDER BY ID DESC LIMIT 1");
-					$row = $result->fetch_row();
-
-					if ($row == null) {
-						$total_job_number = 1; // Initialize $total_group_id here for the case where no rows are found
-					} else {
-						$job_number = substr($row[0], 4); // Adjust substring length to skip "FGID"
-						$total_job_number = $job_number + 1; // Increment the numeric part of the group ID
-					}
-					?>
+				<form action="php/insert_lubricants.php" method="post">
 					<div class="card">
 						<div class="card-body add-product pb-0">
-							<div class="accordion-card-one accordion" id="accordionExample">
-								<!-- here -->
-								<div class="accordion-item">
-									<div class="accordion-header" id="headingOne">
-										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
-											<div class="addproduct-icon">
-												<h5><i data-feather="info" class="add-info"></i><span>Vehicle Information</span></h5>
-												<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
-											</div>
-										</div>
-									</div>
-									<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-										<div class="accordion-body">
-											<div class="row">
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="input-blocks add-product list">
-														<label class="form-label">Job Number</label>
-														<input type="text" class="form-control" name="jobNumber" value="JOBN<?php echo $total_job_number ?>" readonly>
-														<button type="submit" class="btn btn-primaryadd">
-															Generate Code
-														</button>
-													</div>
-												</div>
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Job Date</label>
-														<input type="date" name="jobDate" class="form-control">
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Registration Number</label>
-														<input type="text" name="registerNumber" class="form-control" placeholder="Enter Vehicle Reg. No.">
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Year</label>
-														<select class="select" name="year">
-															<option>Choose</option>
-															<option>2081</option>
-															<option>2082</option>
-														</select>
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Date/ Time In:</label>
-														<input type="text" name="dateTimeIn" class="form-control" placeholder="Entrance Date and Time">
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Millage</label>
-														<input type="text" name="millage" class="form-control"" placeholder=" Enter Vehicle Millage in km/hr">
-													</div>
-												</div>
-												<div class=" col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Vehicle Brand</label>
-														<input type="text" name="vehicleBrand" class="form-control" placeholder="Enter Vehicle Brand">
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Vehicle Model</label>
-														<input type="text" name="vehicleModel" class="form-control" placeholder="Enter Vehicle Model">
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Vehicle Colour</label>
-														<input type="text" name="vehicleColour" class="form-control" placeholder="Enter Vehicle Colour">
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Date/ Time Out:</label>
-														<input type="text" name="dateTimeOut" class="form-control" placeholder="Departure Date and Time">
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Engine No.</label>
-														<input type="text" name="engineNumber" class="form-control"" placeholder=" Enter Vehicle Engine No.">
-													</div>
-												</div>
-												<div class=" col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">VIN No.</label>
-														<input type="text" name="vinNumber" class="form-control" placeholder="Enter Vehicle VIN No.">
-													</div>
-												</div>
-												<div class=" col-lg-4 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Purpose Visit</label>
-														<?php require_once 'php/purposeDataFromDatabase.php'; ?>
-														<select class="select" name="purpose[]" multiple>
-															<option value="">Select Purpose Visit</option>
-															<?php
-															foreach ($purposes as $purpose) {
-																echo "<option value='" . htmlspecialchars($purpose['purpose']) . "'>" . htmlspecialchars($purpose['purpose']) . "</option>";
-															}
-															?>
-														</select>
-													</div>
-												</div>
-												<!-- Fuel/Battery Selection -->
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Select Type</label>
-														<div class="d-flex gap-3">
-															<input type="radio" name="fuelBattery" id="fuelOption" value="fuel" checked>
-															<label for="fuelOption">Fuel</label>
-															<input type="radio" name="fuelBattery" id="batteryOption" value="battery">
-															<label for="batteryOption">Battery</label>
-														</div>
-													</div>
-												</div>
-												<div class=" col-lg-4 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Customer Name</label>
-														<input type="text" name="customerName" class="form-control" placeholder="Enter Customer Name">
-													</div>
-												</div>
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Contact Number</label>
-														<input type="text" name="contactNumber" class="form-control" placeholder="Enter Customer Contact">
-													</div>
-												</div>
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Address</label>
-														<input type="text" name="customerAddress" class="form-control" placeholder="Enter Customer Address">
-													</div>
-												</div>
-												<div class="col-lg-2 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Fuel/Battery Level</label>
-														<div class="fuel-battery-indicator">
-															<span>E</span>
-															<input type="range" class="form-range" min="0" max="60" step="1" value="30" id="fuelBatteryLevel" oninput="updateHiddenValue()">
-															<span>F</span>
-															<span id="fuelBatteryValue">30L</span>
-														</div>
-													</div>
-												</div>
-												<!-- Hidden input to store the selected value for submission -->
-												<input type="hidden" name="powerValue" id="powerValue" value="30">
-											</div>
-											<!-- Editor -->
-											<div class="row">
-												<div class="col-lg-6">
-													<div class="input-blocks summer-description-box transfer mb-3">
-														<label>Reported Defects/Demanded Repairs</label>
-														<textarea class="form-control h-100" name="reportedDefects" rows="5"></textarea>
-														<p class="mt-1">Maximum 60 Characters</p>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="input-blocks summer-description-box transfer mb-3">
-														<label>Completed Actions</label>
-														<textarea class="form-control h-100" name="completedAction" rows="5"></textarea>
-														<p class="mt-1">Maximum 60 Characters</p>
-													</div>
-												</div>
-											</div>
-											<!-- /Editor -->
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--/here -->
 							<div class="accordion-card-one accordion" id="accordionExample2">
 								<div class="accordion-item">
 									<div class="accordion-header" id="headingTwo">
@@ -247,9 +54,400 @@
 									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
 										<div class="accordion-body">
 											<div class="input-blocks add-products">
-												<!-- Lubricant All Rows -->
-												<?php include './includes/lubricantAllRows.php' ?>
-												<!-- /Lubricant All Rows -->
+												<!-- First Row -->
+												<div class="row">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Second Row (Initially Hidden) -->
+												<div class="row" id="secondRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType1" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan1" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice1" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis1" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet1" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton2" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Third Row (Initially Hidden) -->
+												<div class="row" id="thirdRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType3" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan3" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice3" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis3" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet3" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton3" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Fourth Row (Initially Hidden) -->
+												<div class="row" id="fourthRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType4" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan4" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice4" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis4" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet4" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton4" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Fifth Row (Initially Hidden) -->
+												<div class="row" id="fifthRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType5" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan5" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice5" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis5" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet5" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton5" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Sixth Row (Initially Hidden) -->
+												<div class="row" id="sixthRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType6" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan6" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice6" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis6" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet6" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton6" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Seventh Row (Initially Hidden) -->
+												<div class="row" id="seventhRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType7" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan7" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice7" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis7" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet7" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton7" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Eighth Row (Initially Hidden) -->
+												<div class="row" id="eighthRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType8" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan8" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice8" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis8" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet8" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton8" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Nineth Row (Initially Hidden) -->
+												<div class="row" id="ninethRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType9" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan9" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice9" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis9" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet9" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButton9" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Tenth Row (Initially Hidden) -->
+												<div class="row" id="tenthRow" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Lubricant Type</label>
+															<input type="text" name="lubType10" class="lubricantSearch form-control" placeholder="Search Lubricant">
+															<div class="lubricantSearchResults search-results"></div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="lubQuan10" class="lubricantQuantity form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="lubPrice10" class="lubricantTotal form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="lubDis10" class="lubricantDiscount form-control" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="lubNet10" class="lubricantNetAmount form-control" value="0">
+														</div>
+													</div>
+												</div>
 												<!-- lubricant script -->
 												<?php include './includes/lubricantScript.php' ?>
 												<!-- /lubricant script -->
@@ -1917,6 +2115,7 @@
 									</div>
 								</div>
 							</div>
+
 							<style>
 								.search-results {
 									position: absolute;
@@ -1938,260 +2137,6 @@
 									background: #f0f0f0;
 								}
 							</style>
-							<div class="accordion-card-one accordion" id="accordionExample4">
-								<div class="accordion-item">
-									<div class="accordion-header" id="headingFour">
-										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour">
-											<div class="text-editor add-list">
-												<div class="addproduct-icon list">
-													<h5><i data-feather="list" class="add-info"></i><span>Custom Fields</span></h5>
-													<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample4">
-										<div class="accordion-body">
-											<div class="text-editor add-list add">
-												<div class="container-fluid">
-													<div class="row justify-content-center">
-														<div class="col-md-8">
-															<div class="mb-3 car-body-container">
-																<h5 class="mb-3">Vehicle Body Report (Mark P-Paint, D-Dent, S-Scratch)</h5>
-																<h6 class="mb-3"><span class="text-primary">[Note: </span> It can't be edited further.</h6>
-
-																<!-- Image Upload -->
-																<div class="mb-3">
-																	<input type="file" id="imageInput" accept="image/*" class="form-control">
-																</div>
-
-																<!-- Canvas for Drawing -->
-																<div class="car-body-diagram">
-																	<canvas id="carCanvas" class="w-100"></canvas>
-																</div>
-
-																<!-- Buttons for Marking -->
-																<div class="marker-options mt-3">
-																	<button type="button" class="marker-btn" onclick="setMarker('P', 'green')">P - Paint</button>
-																	<button type="button" class="marker-btn" onclick="setMarker('D', 'blue')">D - Dent</button>
-																	<button type="button" class="marker-btn" onclick="setMarker('S', 'red')">S - Scratch</button>
-																	<button type="button" class="marker-btn clear-markers" onclick="clearCanvas()">Clear Marks</button>
-																	<button type="button" class="marker-btn" onclick="saveImage()">Save Marked Image</button>
-																	<button type="button" class="marker-btn" onclick="undoMark()">Undo</button>
-																</div>
-
-																<!-- Upload Button to send image to database -->
-																<div class="upload-section mt-4">
-																	<label for="uploadImage" class="form-label">Upload Saved Image to Database</label>
-																	<input type="file" class="form-control" name="imageOfCar" multiple>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<script>
-													const canvas = document.getElementById('carCanvas');
-													const ctx = canvas.getContext('2d');
-													let img = new Image();
-													let markerType = 'S'; // Default marker type
-													let markerColor = 'red';
-													let drawnMarks = []; // Store the drawn marks
-
-													// Load image when file is selected
-													document.getElementById('imageInput').addEventListener('change', function(event) {
-														const file = event.target.files[0];
-														if (file) {
-															const reader = new FileReader();
-															reader.onload = function(e) {
-																img.onload = function() {
-																	canvas.width = img.width;
-																	canvas.height = img.height;
-																	ctx.drawImage(img, 0, 0);
-																}
-																img.src = e.target.result;
-															}
-															reader.readAsDataURL(file);
-														}
-													});
-
-													// Set marker type and color
-													function setMarker(type, color) {
-														markerType = type; // 'S', 'D', or 'P'
-														markerColor = color;
-													}
-
-													// Draw marker on click
-													canvas.addEventListener('click', function(event) {
-														const rect = canvas.getBoundingClientRect();
-														const x = event.clientX - rect.left;
-														const y = event.clientY - rect.top;
-
-														// Draw the mark on the canvas
-														ctx.fillStyle = markerColor;
-														ctx.font = '20px Arial';
-														ctx.fillText(markerType, x, y);
-
-														// Save the mark to the drawnMarks array
-														drawnMarks.push({
-															type: markerType,
-															color: markerColor,
-															x: x,
-															y: y
-														});
-													});
-
-													// Clear the canvas (except the image)
-													function clearCanvas() {
-														ctx.drawImage(img, 0, 0);
-														drawnMarks = []; // Clear the drawn marks array
-													}
-
-													// Save the marked image
-													function saveImage() {
-														const link = document.createElement('a');
-														link.download = 'marked_car_image.png';
-														link.href = canvas.toDataURL();
-														link.click();
-													}
-
-													// Undo the last mark
-													function undoMark() {
-														drawnMarks.pop(); // Remove the last mark from the array
-														redrawCanvas(); // Redraw the canvas without the last mark
-													}
-
-													// Redraw the canvas from the marks array
-													function redrawCanvas() {
-														ctx.drawImage(img, 0, 0); // Redraw the image
-														// Redraw all the marks except the last one
-														drawnMarks.forEach(mark => {
-															ctx.fillStyle = mark.color;
-															ctx.font = '20px Arial';
-															ctx.fillText(mark.type, mark.x, mark.y);
-														});
-													}
-												</script>
-
-												<style>
-													.car-body-container {
-														text-align: center;
-													}
-
-													.car-body-diagram {
-														position: relative;
-														display: inline-block;
-													}
-
-													canvas {
-														border: 2px solid #f0f0f0;
-														cursor: crosshair;
-													}
-
-													.marker-options {
-														margin-top: 10px;
-													}
-
-													.marker-btn {
-														margin: 5px;
-														padding: 10px 20px;
-														cursor: pointer;
-														border: none;
-														background-color: #007bff;
-														color: white;
-														border-radius: 5px;
-														transition: background-color 0.3s ease;
-													}
-
-													.marker-btn:hover {
-														background-color: #0056b3;
-													}
-
-													.clear-markers {
-														background-color: red;
-													}
-
-													.clear-markers:hover {
-														background-color: darkred;
-													}
-
-													.container-fluid {
-														padding-left: 0;
-														padding-right: 0;
-													}
-
-													.row {
-														display: flex;
-														justify-content: center;
-													}
-
-													.col-md-8 {
-														padding: 20px;
-													}
-
-													.upload-section {
-														margin-top: 20px;
-													}
-
-													.upload-section input {
-														display: inline-block;
-														margin-bottom: 10px;
-													}
-
-													@media (max-width: 767px) {
-														.marker-btn {
-															padding: 8px 16px;
-														}
-													}
-												</style>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="accordion-card-one accordion" id="accordionExample">
-								<div class="accordion-item">
-									<div class="accordion-header" id="headingOne">
-										<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
-											<div class="addproduct-icon">
-												<h5><i data-feather="info" class="add-info"></i><span>Privacy Information</span></h5>
-												<a href="javascript:void(0);"><i data-feather="chevron-down" class="chevron-down-add"></i></a>
-											</div>
-										</div>
-									</div>
-									<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-										<div class="accordion-body">
-											<div class="row">
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Contact Person</label>
-														<input type="text" name="contactPerson" class="form-control" placeholder="Enter Contact Person">
-													</div>
-												</div>
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Contact Number</label>
-														<input type="text" name="personContactNumber" class="form-control" placeholder="Enter Person's Contact Number">
-													</div>
-												</div>
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Technician Name</label>
-														<input type="text" name="technicianName" class="form-control" placeholder="Enter Technician Name">
-													</div>
-												</div>
-												<div class="col-lg-3 col-sm-6 col-12">
-													<div class="mb-3 add-product">
-														<label class="form-label">Supervisor</label>
-														<input type="text" name="supervisor" class="form-control" placeholder="Enter Supervisor Name">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 							<div class="col-lg-12">
 								<div class="btn-addproduct mb-4">
 									<button type="button" class="btn btn-cancel me-2">Cancel</button>
@@ -2261,25 +2206,24 @@
 		}
 	</style>
 
-	<!-- Fuel Battery Indicator Ajax -->
-	<?php include './includes/fuelBatteryAjax.php'; ?>
-	<!-- /Fuel Battery Indicator Ajax -->
 
-	<!-- Spare Parts -->
-	<?php include './includes/spareAjax.php'; ?>
-	<!-- /Spare Parts -->
-
-	<!-- Dent/Paint Details -->
-	<?php include './includes/dentPaintAjax.php'; ?>
-	<!-- /Dent/Paint Details -->
+	<!-- Lubricant Details -->
+	<?php include './includes/duplicateAjax.php'; ?>
+	<!-- /Lubricant Details -->
 
 	<!-- labour Details -->
 	<?php include './includes/labourDetailsAjax.php'; ?>
 	<!-- /labour Details -->
 
-	<!-- Lubricant Details -->
-	<?php include './includes/lubricantDetailsAjax.php'; ?>
-	<!-- /Lubricant Details -->
+	<!-- Dent/Paint Details -->
+	<?php include './includes/dentPaintAjax.php'; ?>
+	<!-- /Dent/Paint Details -->
+
+	<!-- Spare Parts -->
+	<?php include './includes/spareAjax.php'; ?>
+	<!-- /Spare Parts -->
+
+
 </body>
 
 

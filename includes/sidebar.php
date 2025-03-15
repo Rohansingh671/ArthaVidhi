@@ -30,6 +30,10 @@
 						<li class="<?php if ($page == 'add-product') {
 										echo 'active';
 									} ?>"><a href="add-product.php"><i data-feather="plus-square"></i><span>JobCards Entry</span></a></li>
+
+						<li class="<?php if ($page == 'vehicleInspection') {
+										echo 'active';
+									} ?>"><a href="vehicleInspection.php"><i data-feather="speaker"></i><span>Vehicle Inspection</span></a></li>
 						<li hidden class="<?php if ($page == 'expired-products') {
 												echo 'active';
 											} ?>"><a href="expired-products.php"><i data-feather="codesandbox"></i><span>Expired Products</span></a></li>
@@ -37,11 +41,11 @@
 												echo 'active';
 											} ?>"><a href="low-stocks.php"><i data-feather="trending-down"></i><span>Low Stocks</span></a></li>
 						<li hidden class="<?php if ($page == 'category-list') {
-										echo 'active';
-									} ?>"><a href="category-list.php"><i data-feather="codepen"></i><span>Category</span></a></li>
+												echo 'active';
+											} ?>"><a href="category-list.php"><i data-feather="codepen"></i><span>Category</span></a></li>
 						<li hidden class="<?php if ($page == 'sub-categories') {
-										echo 'active';
-									} ?>"><a href="sub-categories.php"><i data-feather="speaker"></i><span>Sub Category</span></a></li>
+												echo 'active';
+											} ?>"><a href="sub-categories.php"><i data-feather="speaker"></i><span>Sub Category</span></a></li>
 						<li class="<?php if ($page == 'brand-list') {
 										echo 'active';
 									} ?>"><a href="brand-list.php"><i data-feather="codepen"></i><span>Create Jobs</span></a></li>
@@ -71,9 +75,6 @@
 							<a href="dentPaint-list.php"><i data-feather="tool"></i><span>Dent/ Paint List</span></a>
 						</li>
 
-						<li hidden class="<?php if ($page == 'units') {
-										echo 'active';
-									} ?>"><a href="units.php"><i data-feather="speaker"></i><span>Units</span></a></li>
 						<li hidden class="<?php if ($page == 'varriant-attributes') {
 												echo 'active';
 											} ?>"><a href="varriant-attributes.php"><i data-feather="layers"></i><span>Variant Attributes</span></a></li>
