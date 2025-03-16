@@ -97,3 +97,103 @@
         }
     });
 </script>
+<script>
+    document.getElementById("toggleRowButtonLabour10").addEventListener("click", function() {
+        var eleventhRow2 = document.getElementById("eleventhRow2");
+        if (eleventhRow2.style.display === "none") {
+            eleventhRow2.style.display = "flex"; // Show the row
+        } else {
+            eleventhRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour11").addEventListener("click", function() {
+        var twelfthRow2 = document.getElementById("twelfthRow2");
+        if (twelfthRow2.style.display === "none") {
+            twelfthRow2.style.display = "flex"; // Show the row
+        } else {
+            twelfthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour12").addEventListener("click", function() {
+        var thirteenthRow2 = document.getElementById("thirteenthRow2");
+        if (thirteenthRow2.style.display === "none") {
+            thirteenthRow2.style.display = "flex"; // Show the row
+        } else {
+            thirteenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour13").addEventListener("click", function() {
+        var fourteenthRow2 = document.getElementById("fourteenthRow2");
+        if (fourteenthRow2.style.display === "none") {
+            fourteenthRow2.style.display = "flex"; // Show the row
+        } else {
+            fourteenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour14").addEventListener("click", function() {
+        var fifteenthRow2 = document.getElementById("fifteenthRow2");
+        if (fifteenthRow2.style.display === "none") {
+            fifteenthRow2.style.display = "flex"; // Show the row
+        } else {
+            fifteenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour15").addEventListener("click", function() {
+        var sixteenthRow2 = document.getElementById("sixteenthRow2");
+        if (sixteenthRow2.style.display === "none") {
+            sixteenthRow2.style.display = "flex"; // Show the row
+        } else {
+            sixteenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour16").addEventListener("click", function() {
+        var seventeenthRow2 = document.getElementById("seventeenthRow2");
+        if (seventeenthRow2.style.display === "none") {
+            seventeenthRow2.style.display = "flex"; // Show the row
+        } else {
+            seventeenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour17").addEventListener("click", function() {
+        var eighteenthRow2 = document.getElementById("eighteenthRow2");
+        if (eighteenthRow2.style.display === "none") {
+            eighteenthRow2.style.display = "flex"; // Show the row
+        } else {
+            eighteenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour18").addEventListener("click", function() {
+        var nineteenthRow2 = document.getElementById("nineteenthRow2");
+        if (nineteenthRow2.style.display === "none") {
+            nineteenthRow2.style.display = "flex"; // Show the row
+        } else {
+            nineteenthRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonLabour19").addEventListener("click", function() {
+        var twentiethRow2 = document.getElementById("twentiethRow2");
+        if (twentiethRow2.style.display === "none") {
+            twentiethRow2.style.display = "flex"; // Show the row
+        } else {
+            twentiethRow2.style.display = "none"; // Hide the row
+        }
+    });
+</script>

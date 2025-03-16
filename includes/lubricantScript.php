@@ -97,3 +97,113 @@
         }
     });
 </script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton10").addEventListener("click", function() {
+        var eleventhRow = document.getElementById("eleventhRow");
+        if (eleventhRow.style.display === "none") {
+            eleventhRow.style.display = "flex"; // Show the row
+        } else {
+            eleventhRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton11").addEventListener("click", function() {
+        var twelfthRow = document.getElementById("twelfthRow");
+        if (twelfthRow.style.display === "none") {
+            twelfthRow.style.display = "flex"; // Show the row
+        } else {
+            twelfthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton12").addEventListener("click", function() {
+        var thirteenthRow = document.getElementById("thirteenthRow");
+        if (thirteenthRow.style.display === "none") {
+            thirteenthRow.style.display = "flex"; // Show the row
+        } else {
+            thirteenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton13").addEventListener("click", function() {
+        var fourteenthRow = document.getElementById("fourteenthRow");
+        if (fourteenthRow.style.display === "none") {
+            fourteenthRow.style.display = "flex"; // Show the row
+        } else {
+            fourteenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton14").addEventListener("click", function() {
+        var fifteenthRow = document.getElementById("fifteenthRow");
+        if (fifteenthRow.style.display === "none") {
+            fifteenthRow.style.display = "flex"; // Show the row
+        } else {
+            fifteenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton15").addEventListener("click", function() {
+        var sixteenthRow = document.getElementById("sixteenthRow");
+        if (sixteenthRow.style.display === "none") {
+            sixteenthRow.style.display = "flex"; // Show the row
+        } else {
+            sixteenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton16").addEventListener("click", function() {
+        var seventeenthRow = document.getElementById("seventeenthRow");
+        if (seventeenthRow.style.display === "none") {
+            seventeenthRow.style.display = "flex"; // Show the row
+        } else {
+            seventeenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton17").addEventListener("click", function() {
+        var eighteenthRow = document.getElementById("eighteenthRow");
+        if (eighteenthRow.style.display === "none") {
+            eighteenthRow.style.display = "flex"; // Show the row
+        } else {
+            eighteenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton18").addEventListener("click", function() {
+        var nineteenthRow = document.getElementById("nineteenthRow");
+        if (nineteenthRow.style.display === "none") {
+            nineteenthRow.style.display = "flex"; // Show the row
+        } else {
+            nineteenthRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<!-- JavaScript for Toggle Functionality -->
+<script>
+    document.getElementById("toggleRowButton19").addEventListener("click", function() {
+        var twentiethRow = document.getElementById("twentiethRow");
+        if (twentiethRow.style.display === "none") {
+            twentiethRow.style.display = "flex"; // Show the row
+        } else {
+            twentiethRow.style.display = "none"; // Hide the row
+        }
+    });
+</script>

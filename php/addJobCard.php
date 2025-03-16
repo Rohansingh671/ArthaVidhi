@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepared SQL statement for inserting job descriptions
         $stmt = $mysqli->prepare("INSERT INTO `jobCard`
         (`jobNumber`, `jobDate`, `registerNumber`, `year`, `millage`, `vehicleBrand`, `dateTimeIn`, `dateTimeOut`, `vehicleModel`, `vehicleColour`, `engineNumber`, `vinNumber`, `purpose`, `fuelBatteryType`, `powerValue`,
-        `customerName`, `customerAddress`, `contactNumber`, `contactPerson`, `personContactNumber`, `reportedDefects`, `completedAction`, `technicianName`, `supervisor`, `imageOfCar`,
+        `customerName`, `customerAddress`, `contactNumber`, `contactPerson`, `personContactNumber`, `reportedDefects`, `completedAction`, `technicianName`, `supervisor`, `imageOfCar`
         ) 
     VALUES 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        if ($stmt->bind_param(
+        $stmt->bind_param(
             "sssissssssssssissssssssss",
             $job_number,
             $job_date,
@@ -157,21 +157,78 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $completed_action,
             $technician_name,
             $supervisor,
-            $imageOfCar,
-        )) {
-            // Execute the statement
-            if (!$stmt->execute()) {
-                echo json_encode(["status" => "error", "message" => "SQL execution failed: " . $stmt->error]);
-                exit;
-            } else {
-                // Successful execution, redirect to product-list.php
-                header("Location: ../product-list.php");
-                exit;
+            $imageOfCar
+        );
+        $stmt->execute();
+        $stmt->close();
+
+        // Insert into lubricants table
+        $stmtLub = $mysqli->prepare("INSERT INTO lubricants (jobNumber, lubType, lubQuan, lubPrice, lubDis, lubNet, labourCode, labourQuan, labourPrice, labourDis, labourNet, dentType, dentQuan, dentPrice, dentDis, dentNet, spareType, spareQuan, sparePrice, spareDis, spareNet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        if (!$stmtLub) {
+            die("Error in preparing statement: " . $mysqli->error);
+        }
+
+        for ($i = 0; $i <= 10; $i++) {
+            $lubType = $_POST["lubType" . ($i == 0 ? "" : $i)] ?? '';
+            $lubQuan = $_POST["lubQuan" . ($i == 0 ? "" : $i)] ?? 0;
+            $lubPrice = $_POST["lubPrice" . ($i == 0 ? "" : $i)] ?? 0;
+            $lubDis = $_POST["lubDis" . ($i == 0 ? "" : $i)] ?? 0;
+            $lubNet = $_POST["lubNet" . ($i == 0 ? "" : $i)] ?? 0;
+
+            $labourCode = $_POST["labourCode" . ($i == 0 ? "" : $i)] ?? '';
+            $labourQuan = $_POST["labourQuan" . ($i == 0 ? "" : $i)] ?? 0;
+            $labourPrice = $_POST["labourPrice" . ($i == 0 ? "" : $i)] ?? 0;
+            $labourDis = $_POST["labourDis" . ($i == 0 ? "" : $i)] ?? 0;
+            $labourNet = $_POST["labourNet" . ($i == 0 ? "" : $i)] ?? 0;
+
+            $dentType = $_POST["dentType" . ($i == 0 ? "" : $i)] ?? '';
+            $dentQuan = $_POST["dentQuan" . ($i == 0 ? "" : $i)] ?? 0;
+            $dentPrice = $_POST["dentPrice" . ($i == 0 ? "" : $i)] ?? 0;
+            $dentDis = $_POST["dentDis" . ($i == 0 ? "" : $i)] ?? 0;
+            $dentNet = $_POST["dentNet" . ($i == 0 ? "" : $i)] ?? 0;
+
+            $spareType = $_POST["spareType" . ($i == 0 ? "" : $i)] ?? '';
+            $spareQuan = $_POST["spareQuan" . ($i == 0 ? "" : $i)] ?? 0;
+            $sparePrice = $_POST["sparePrice" . ($i == 0 ? "" : $i)] ?? 0;
+            $spareDis = $_POST["spareDis" . ($i == 0 ? "" : $i)] ?? 0;
+            $spareNet = $_POST["spareNet" . ($i == 0 ? "" : $i)] ?? 0;
+
+            if (!empty(trim($lubType)) || !empty(trim($labourCode)) || !empty(trim($dentType)) || !empty(trim($spareType))) {
+                $stmtLub->bind_param("ssidddsidddsidddsiddd", $job_number, $lubType, $lubQuan, $lubPrice, $lubDis, $lubNet, $labourCode, $labourQuan, $labourPrice, $labourDis, $labourNet, $dentType, $dentQuan, $dentPrice, $dentDis, $dentNet,  $spareType, $spareQuan, $sparePrice, $spareDis, $spareNet);
+                $stmtLub->execute();
             }
         }
+        echo "Data inserted successfully!";
+        $stmtLub->close();
     }
-}
 
-// Closing the statement and connection
-$stmt->close();
-$mysqli->close();
+    // Function to insert data into customs table
+    function insertData($mysqli, $jobID, $category, $types, $prices, $discounts, $netAmounts)
+    {
+        $stmt = $mysqli->prepare("INSERT INTO customs (jobNumber, category, type_code, price, discount, net_amount) VALUES (?, ?, ?, ?, ?, ?)");
+        if ($stmt) {
+            foreach ($types as $index => $type) {
+                if (!empty(trim($type))) {
+                    $price = floatval($prices[$index] ?? 0);
+                    $discount = floatval($discounts[$index] ?? 0);
+                    $netAmount = floatval($netAmounts[$index] ?? 0);
+                    $stmt->bind_param("ssssdd", $jobID, $category, $type, $price, $discount, $netAmount);
+                    $stmt->execute();
+                }
+            }
+            $stmt->close();
+        }
+    }
+
+    // Insert custom data into different categories
+    insertData($mysqli, $job_number, 'Lubricant', $_POST['customLubType'] ?? [], $_POST['customLubPrice'] ?? [], $_POST['customLubDis'] ?? [], $_POST['customLubNet'] ?? []);
+    insertData($mysqli, $job_number, 'Labour', $_POST['customLabourCode'] ?? [], $_POST['customLabourPrice'] ?? [], $_POST['customLabourDis'] ?? [], $_POST['customLabourNet'] ?? []);
+    insertData($mysqli, $job_number, 'Dent/Paint', $_POST['customDentType'] ?? [], $_POST['customDentPrice'] ?? [], $_POST['customDentDis'] ?? [], $_POST['customDentNet'] ?? []);
+    insertData($mysqli, $job_number, 'Spare Parts', $_POST['customSpareType'] ?? [], $_POST['customSparePrice'] ?? [], $_POST['customSpareDis'] ?? [], $_POST['customSpareNet'] ?? []);
+
+    echo "All data inserted successfully!";
+    $mysqli->close();
+} else {
+    echo "Required fields are missing!";
+}

@@ -2143,6 +2143,8 @@
 									<button type="submit" class="btn btn-submit">Save Product</button>
 								</div>
 							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>

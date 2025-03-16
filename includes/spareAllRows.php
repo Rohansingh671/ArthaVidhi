@@ -1,800 +1,818 @@
-												<!-- First Row -->
-												<div class="row">
+<!-- First Row -->
+<div class="row">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
 												<!-- Second Row (Initially Hidden) -->
-												<div class="row" id="secondRow" style="display: none;">
+												<div class="row" id="secondRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType1" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType1" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan1" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan1" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice1" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice1" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis1" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis1" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet1" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet1" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton2" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare2" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row second -->
 												<!-- Third Row (Initially Hidden) -->
-												<div class="row" id="thirdRow" style="display: none;">
+												<div class="row" id="thirdRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType3" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType3" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan3" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan3" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice3" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice3" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis3" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis3" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet3" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet3" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton3" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare3" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
-												<!-- Fourth Row (Initially Hidden) -->
-												<div class="row" id="fourthRow" style="display: none;">
+												<!-- /row third -->
+												<!-- fourth Row (Initially Hidden) -->
+												<div class="row" id="fourthRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType4" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType4" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan4" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan4" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice4" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice4" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis4" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis4" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet4" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet4" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton4" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare4" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row fourth -->
 												<!-- Fifth Row (Initially Hidden) -->
-												<div class="row" id="fifthRow" style="display: none;">
+												<div class="row" id="fifthRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType5" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType5" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan5" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan5" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice5" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice5" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis5" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis5" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet5" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet5" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton5" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare5" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row fifth -->
 												<!-- Sixth Row (Initially Hidden) -->
-												<div class="row" id="sixthRow" style="display: none;">
+												<div class="row" id="sixthRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType6" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType6" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan6" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan6" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice6" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice6" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis6" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis6" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet6" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet6" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton6" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare6" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row sixth -->
 												<!-- Seventh Row (Initially Hidden) -->
-												<div class="row" id="seventhRow" style="display: none;">
+												<div class="row" id="seventhRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType7" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType7" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan7" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan7" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice7" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice7" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis7" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis7" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet7" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet7" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton7" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare7" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row seventh -->
 												<!-- Eighth Row (Initially Hidden) -->
-												<div class="row" id="eighthRow" style="display: none;">
+												<div class="row" id="eighthRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType8" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType8" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan8" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan8" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice8" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice8" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis8" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis8" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet8" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet8" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton8" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare8" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row eighth -->
 												<!-- Nineth Row (Initially Hidden) -->
-												<div class="row" id="ninethRow" style="display: none;">
+												<div class="row" id="ninethRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType9" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType9" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan9" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan9" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice9" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice9" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis9" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis9" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet9" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet9" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton9" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare9" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
-												<!-- Tenth Row (Initially Hidden) -->
-												<div class="row" id="tenthRow" style="display: none;">
+												<!-- /row nineth -->
+												<!-- tenth Row (Initially Hidden) -->
+												<div class="row" id="tenthRow4" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType10" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType10" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan10" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="spareQuan10" class="form-control spareQuantity" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice10" class="lubricantTotal form-control" value="0">
+															<input type="number" name="sparePrice10" class="form-control spareTotal" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis10" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="spareDis10" class="form-control spareDiscount" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet10" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="spareNet10" class="form-control spareNetAmount" value="0">
 														</div>
 													</div>
-													<!-- Toggle Button -->
+                                                    <!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton10" type="button" class="btn btn-primary btn-sm">
+														<button id="toggleRowButtonSpare10" type="button" class="btn btn-primary btn-sm">
 															<i class="fas fa-plus"></i>
 														</button>
 													</div>
 												</div>
+												<!-- /row tenth -->
+                                                 <!-- Spare All Rows Second -->
+                                                  <!-- First Row -->
+												<div class="row" id="eleventhRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType11" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan11" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice11" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis11" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet11" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare11" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- Second Row (Initially Hidden) -->
+												<div class="row" id="twelfthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType12" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan12" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice12" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis12" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet12" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare12" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row second -->
+												<!-- Third Row (Initially Hidden) -->
+												<div class="row" id="thirteenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType13" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan13" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice13" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis13" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet13" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare13" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row third -->
+												<!-- fourth Row (Initially Hidden) -->
+												<div class="row" id="fourteenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType14" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan14" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice14" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis14" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet14" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare14" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row fourth -->
+												<!-- Fifth Row (Initially Hidden) -->
+												<div class="row" id="fifteenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType15" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan15" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice15" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis15" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet15" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare15" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row fifth -->
+												<!-- Sixth Row (Initially Hidden) -->
+												<div class="row" id="sixteenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType16" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan16" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice16" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis16" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet16" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare16" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row sixth -->
+												<!-- Seventh Row (Initially Hidden) -->
+												<div class="row" id="seventeenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType17" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan17" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice17" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis17" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet17" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare17" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row seventh -->
+												<!-- Eighth Row (Initially Hidden) -->
+												<div class="row" id="eighteenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType18" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan18" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice18" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis18" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet18" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare18" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row eighth -->
+												<!-- Nineth Row (Initially Hidden) -->
+												<div class="row" id="nineteenthRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType19" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan19" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice19" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis19" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet19" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+													<!-- Toggle Button -->
+													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
+														<button id="toggleRowButtonSpare19" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i>
+														</button>
+													</div>
+												</div>
+												<!-- /row nineth -->
+												<!-- tenth Row (Initially Hidden) -->
+												<div class="row" id="twentiethRow4" style="display: none;">
+													<div class="col-lg-4 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Spare Parts Type</label>
+															<input type="text" name="spareType20" class="form-control sparePartsSearch" placeholder="Search Parts">
+															<div class="search-results spareSearchResults"></div> <!-- For search suggestions -->
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Quantity</label>
+															<input type="number" name="spareQuan20" class="form-control spareQuantity" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Total Price</label>
+															<input type="number" name="sparePrice20" class="form-control spareTotal" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Discount (in %)</label>
+															<input type="number" name="spareDis20" class="form-control spareDiscount" value="0">
+														</div>
+													</div>
+													<div class="col-lg-2 col-sm-6 col-12">
+														<div class="input-blocks add-product">
+															<label>Net Amount</label>
+															<input type="number" name="spareNet20" class="form-control spareNetAmount" value="0">
+														</div>
+													</div>
+												</div>
+												<!-- /row tenth -->
+                                                 <!-- /Spare All Rows Second -->
 
-												<!-- Duplicate more 10 rows second -->
-												<!-- First Row -->
-												<div class="row" id="eleventh" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType11" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan11" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice11" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis11" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet11" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton11" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Second Row (Initially Hidden) -->
-												<div class="row" id="twelfthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType12" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan12" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice12" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis12" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet12" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton12" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Third Row (Initially Hidden) -->
-												<div class="row" id="thirteenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType13" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan13" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice13" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis13" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet13" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton13" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Fourth Row (Initially Hidden) -->
-												<div class="row" id="fourteenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType14" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan14" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice14" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis14" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet14" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton14" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Fifth Row (Initially Hidden) -->
-												<div class="row" id="fifteenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType15" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan15" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice15" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis15" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet15" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton15" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Sixth Row (Initially Hidden) -->
-												<div class="row" id="sixteenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType16" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan16" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice16" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis16" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet16" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton16" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Seventh Row (Initially Hidden) -->
-												<div class="row" id="seventeenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType17" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan17" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice17" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis17" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet17" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton17" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Eighth Row (Initially Hidden) -->
-												<div class="row" id="eighteenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType18" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan18" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice18" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis18" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet18" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton18" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Nineth Row (Initially Hidden) -->
-												<div class="row" id="nineteenthRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType19" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan19" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice19" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis19" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet19" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-													<!-- Toggle Button -->
-													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton19" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</div>
-												<!-- Tenth Row (Initially Hidden) -->
-												<div class="row" id="twentiethRow" style="display: none;">
-													<div class="col-lg-4 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType20" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Quantity</label>
-															<input type="number" name="lubQuan20" class="lubricantQuantity form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Total Price</label>
-															<input type="number" name="lubPrice20" class="lubricantTotal form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Discount (in %)</label>
-															<input type="number" name="lubDis20" class="lubricantDiscount form-control" value="0">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6 col-12">
-														<div class="input-blocks add-product">
-															<label>Net Amount</label>
-															<input type="number" name="lubNet20" class="lubricantNetAmount form-control" value="0">
-														</div>
-													</div>
-												</div>
-												<!-- /Duplicate more 10 rows second -->
-												<!-- lubricant script -->
-												<?php include './includes/lubricantScript.php' ?>
-												<!-- /lubricant script -->
+                                                 <!-- spare script -->
+												<?php include './includes/spareScript.php' ?>
+												<!-- /spare script -->

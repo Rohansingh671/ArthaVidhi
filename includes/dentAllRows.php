@@ -1,800 +1,798 @@
-												<!-- First Row -->
-												<div class="row">
+<div class="row">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Second Row (Initially Hidden) -->
-												<div class="row" id="secondRow" style="display: none;">
+												<!-- row second -->
+												<div class="row" id="secondRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType1" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType1" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan1" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan1" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice1" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice1" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis1" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis1" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet1" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet1" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton2" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent2" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Third Row (Initially Hidden) -->
-												<div class="row" id="thirdRow" style="display: none;">
+												<!-- row third -->
+												<div class="row" id="thirdRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType3" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType3" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan3" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan3" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice3" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice3" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis3" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis3" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet3" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet3" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton3" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent3" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Fourth Row (Initially Hidden) -->
-												<div class="row" id="fourthRow" style="display: none;">
+												<!-- row fourth -->
+												<div class="row" id="fourthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType4" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType4" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan4" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan4" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice4" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice4" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis4" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis4" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet4" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet4" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton4" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent4" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Fifth Row (Initially Hidden) -->
-												<div class="row" id="fifthRow" style="display: none;">
+												<!-- row fifth -->
+												<div class="row" id="fifthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType5" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType5" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan5" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan5" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice5" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice5" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis5" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis5" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet5" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet5" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton5" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent5" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Sixth Row (Initially Hidden) -->
-												<div class="row" id="sixthRow" style="display: none;">
+												<!-- row sixth -->
+												<div class="row" id="sixthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType6" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType6" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan6" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan6" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice6" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice6" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis6" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis6" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet6" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet6" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton6" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent6" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Seventh Row (Initially Hidden) -->
-												<div class="row" id="seventhRow" style="display: none;">
+												<!-- row seventh -->
+												<div class="row" id="seventhRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType7" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType7" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan7" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan7" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice7" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice7" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis7" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis7" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet7" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet7" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton7" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent7" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Eighth Row (Initially Hidden) -->
-												<div class="row" id="eighthRow" style="display: none;">
+												<!-- row eighth -->
+												<div class="row" id="eighthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType8" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType8" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan8" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan8" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice8" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice8" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis8" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis8" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet8" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet8" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton8" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent8" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Nineth Row (Initially Hidden) -->
-												<div class="row" id="ninethRow" style="display: none;">
+												<!-- row nineth -->
+												<div class="row" id="ninethRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType9" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType9" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan9" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan9" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice9" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice9" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis9" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis9" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet9" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet9" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton9" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent9" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Tenth Row (Initially Hidden) -->
-												<div class="row" id="tenthRow" style="display: none;">
+												<!-- row tenth -->
+												<div class="row" id="tenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType10" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType10" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan10" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan10" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice10" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice10" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis10" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis10" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet10" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet10" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
-													<!-- Toggle Button -->
+                                                    <!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton10" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent10" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
 
-												<!-- Duplicate more 10 rows second -->
-												<!-- First Row -->
-												<div class="row" id="eleventh" style="display: none;">
+                                                <!-- Dent All Rows Second -->
+                                                <div class="row" id="eleventhRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType11" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType11" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan11" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan11" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice11" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice11" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis11" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis11" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet11" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet11" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton11" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent11" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Second Row (Initially Hidden) -->
-												<div class="row" id="twelfthRow" style="display: none;">
+												<!-- row second -->
+												<div class="row" id="twelfthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType12" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType12" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan12" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan12" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice12" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice12" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis12" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis12" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet12" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet12" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton12" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent12" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Third Row (Initially Hidden) -->
-												<div class="row" id="thirteenthRow" style="display: none;">
+												<!-- row third -->
+												<div class="row" id="thirteenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType13" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType13" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan13" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan13" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice13" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice13" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis13" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis13" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet13" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet13" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton13" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent13" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Fourth Row (Initially Hidden) -->
-												<div class="row" id="fourteenthRow" style="display: none;">
+												<!-- row fourth -->
+												<div class="row" id="fourteenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType14" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType14" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan14" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan14" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice14" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice14" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis14" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis14" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet14" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet14" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton14" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent14" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Fifth Row (Initially Hidden) -->
-												<div class="row" id="fifteenthRow" style="display: none;">
+												<!-- row fifth -->
+												<div class="row" id="fifteenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType15" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType15" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan15" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan15" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice15" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice15" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis15" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis15" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet15" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet15" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton15" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent15" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Sixth Row (Initially Hidden) -->
-												<div class="row" id="sixteenthRow" style="display: none;">
+												<!-- row sixth -->
+												<div class="row" id="sixteenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType16" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType16" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan16" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan16" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice16" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice16" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis16" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis16" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet16" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet16" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton16" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent16" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Seventh Row (Initially Hidden) -->
-												<div class="row" id="seventeenthRow" style="display: none;">
+												<!-- row seventh -->
+												<div class="row" id="seventeenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType17" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType17" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan17" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan17" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice17" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice17" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis17" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis17" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet17" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet17" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton17" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent17" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Eighth Row (Initially Hidden) -->
-												<div class="row" id="eighteenthRow" style="display: none;">
+												<!-- row eighth -->
+												<div class="row" id="eighteenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType18" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType18" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan18" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan18" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice18" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice18" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis18" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis18" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet18" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet18" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton18" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent18" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Nineth Row (Initially Hidden) -->
-												<div class="row" id="nineteenthRow" style="display: none;">
+												<!-- row nineth -->
+												<div class="row" id="nineteenthRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType19" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType19" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan19" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan19" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice19" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice19" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis19" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis19" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet19" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet19" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 													<!-- Toggle Button -->
 													<div class="mb-3 col-lg-1 col-sm-6 col-12 d-flex align-items-end">
-														<button id="toggleRowButton19" type="button" class="btn btn-primary btn-sm">
-															<i class="fas fa-plus"></i>
+														<button id="toggleRowButtonDent19" type="button" class="btn btn-primary btn-sm">
+															<i class="fas fa-plus"></i> <!-- FontAwesome icon -->
 														</button>
 													</div>
 												</div>
-												<!-- Tenth Row (Initially Hidden) -->
-												<div class="row" id="twentiethRow" style="display: none;">
+												<!-- row tenth -->
+												<div class="row" id="twentiethRow3" style="display: none;">
 													<div class="col-lg-4 col-sm-6 col-12">
 														<div class="input-blocks add-product">
-															<label>Lubricant Type</label>
-															<input type="text" name="lubType20" class="lubricantSearch form-control" placeholder="Search Lubricant">
-															<div class="lubricantSearchResults search-results"></div>
+															<label>Dent/ Paint Type</label>
+															<input type="text" name="dentType20" class="dentTypeSearch form-control" placeholder="Search Dent/Paint">
+															<div class="dentSearchResults search-results"></div> <!-- For search suggestions -->
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Quantity</label>
-															<input type="number" name="lubQuan20" class="lubricantQuantity form-control" value="0">
+															<input type="number" name="dentQuan20" class="dentQuantity form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Total Price</label>
-															<input type="number" name="lubPrice20" class="lubricantTotal form-control" value="0">
+															<input type="number" name="dentPrice20" class="dentTotal form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Discount (in %)</label>
-															<input type="number" name="lubDis20" class="lubricantDiscount form-control" value="0">
+															<input type="number" name="dentDis20" class="dentDiscount form-control" value="0">
 														</div>
 													</div>
 													<div class="col-lg-2 col-sm-6 col-12">
 														<div class="input-blocks add-product">
 															<label>Net Amount</label>
-															<input type="number" name="lubNet20" class="lubricantNetAmount form-control" value="0">
+															<input type="number" name="dentNet20" class="dentNetAmount form-control" value="0">
 														</div>
 													</div>
 												</div>
-												<!-- /Duplicate more 10 rows second -->
-												<!-- lubricant script -->
-												<?php include './includes/lubricantScript.php' ?>
-												<!-- /lubricant script -->
+
+                                                <!-- dent script -->
+												<?php include './includes/dentScript.php' ?>
+												<!-- /dent Script -->

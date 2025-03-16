@@ -97,3 +97,103 @@
         }
     });
 </script>
+<script>
+    document.getElementById("toggleRowButtonDent10").addEventListener("click", function() {
+        var eleventhRow3 = document.getElementById("eleventhRow3");
+        if (eleventhRow3.style.display === "none") {
+            eleventhRow3.style.display = "flex"; // Show the row
+        } else {
+            eleventhRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent11").addEventListener("click", function() {
+        var twelfthRow3 = document.getElementById("twelfthRow3");
+        if (twelfthRow3.style.display === "none") {
+            twelfthRow3.style.display = "flex"; // Show the row
+        } else {
+            twelfthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent12").addEventListener("click", function() {
+        var thirteenthRow3 = document.getElementById("thirteenthRow3");
+        if (thirteenthRow3.style.display === "none") {
+            thirteenthRow3.style.display = "flex"; // Show the row
+        } else {
+            thirteenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent13").addEventListener("click", function() {
+        var fourteenthRow3 = document.getElementById("fourteenthRow3");
+        if (fourteenthRow3.style.display === "none") {
+            fourteenthRow3.style.display = "flex"; // Show the row
+        } else {
+            fourteenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent14").addEventListener("click", function() {
+        var fifteenthRow3 = document.getElementById("fifteenthRow3");
+        if (fifteenthRow3.style.display === "none") {
+            fifteenthRow3.style.display = "flex"; // Show the row
+        } else {
+            fifteenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent15").addEventListener("click", function() {
+        var sixteenthRow3 = document.getElementById("sixteenthRow3");
+        if (sixteenthRow3.style.display === "none") {
+            sixteenthRow3.style.display = "flex"; // Show the row
+        } else {
+            sixteenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent16").addEventListener("click", function() {
+        var seventeenthRow3 = document.getElementById("seventeenthRow3");
+        if (seventeenthRow3.style.display === "none") {
+            seventeenthRow3.style.display = "flex"; // Show the row
+        } else {
+            seventeenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent17").addEventListener("click", function() {
+        var eighteenthRow3 = document.getElementById("eighteenthRow3");
+        if (eighteenthRow3.style.display === "none") {
+            eighteenthRow3.style.display = "flex"; // Show the row
+        } else {
+            eighteenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent18").addEventListener("click", function() {
+        var nineteenthRow3 = document.getElementById("nineteenthRow3");
+        if (nineteenthRow3.style.display === "none") {
+            nineteenthRow3.style.display = "flex"; // Show the row
+        } else {
+            nineteenthRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>
+<script>
+    document.getElementById("toggleRowButtonDent19").addEventListener("click", function() {
+        var twentiethRow3 = document.getElementById("twentiethRow3");
+        if (twentiethRow3.style.display === "none") {
+            twentiethRow3.style.display = "flex"; // Show the row
+        } else {
+            twentiethRow3.style.display = "none"; // Hide the row
+        }
+    });
+</script>

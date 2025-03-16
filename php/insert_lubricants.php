@@ -4,7 +4,8 @@ require_once 'databaseConnection.php';
 $mysqli = db_connect(); // Get the database connection
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $stmt = $mysqli->prepare("INSERT INTO lubricants (lubType, lubQuan, lubPrice, lubDis, lubNet, customLubType, customLubPrice, customLubDis, customLubNet, labourCode, labourQuan, labourPrice, labourDis, labourNet, dentType, dentQuan, dentPrice, dentDis, dentNet, spareType, spareQuan, sparePrice, spareDis, spareNet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $jobID = $_POST["jobNumber"]; // Fetch job number from the form
+    $stmt = $mysqli->prepare("INSERT INTO lubricants (jobNumber, lubType, lubQuan, lubPrice, lubDis, lubNet, labourCode, labourQuan, labourPrice, labourDis, labourNet, dentType, dentQuan, dentPrice, dentDis, dentNet, spareType, spareQuan, sparePrice, spareDis, spareNet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     if (!$stmt) {
         die("Error in preparing statement: " . $mysqli->error);
@@ -16,11 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lubPrice = $_POST["lubPrice" . ($i == 0 ? "" : $i)] ?? 0;
         $lubDis = $_POST["lubDis" . ($i == 0 ? "" : $i)] ?? 0;
         $lubNet = $_POST["lubNet" . ($i == 0 ? "" : $i)] ?? 0;
-
-        $customLubType = $_POST["customLubType" . ($i == 0 ? "" : $i)] ?? '';
-        $customLubPrice = $_POST["customLubPrice" . ($i == 0 ? "" : $i)] ?? 0;
-        $customLubDis = $_POST["customLubDis" . ($i == 0 ? "" : $i)] ?? 0;
-        $customLubNet = $_POST["customLubNet" . ($i == 0 ? "" : $i)] ?? 0;
 
         $labourCode = $_POST["labourCode" . ($i == 0 ? "" : $i)] ?? '';
         $labourQuan = $_POST["labourQuan" . ($i == 0 ? "" : $i)] ?? 0;
@@ -43,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Insert data only if at least one field is filled
         if (!empty(trim($lubType)) || !empty(trim($labourCode)) || !empty(trim($dentType)) || !empty(trim($spareType)) || !empty(trim($customLubType))) {
-            $stmt->bind_param("sidddsdddsidddsidddsiddd", $lubType, $lubQuan, $lubPrice, $lubDis, $lubNet,  $customLubType, $customLubPrice, $customLubDis, $customLubNet, $labourCode, $labourQuan, $labourPrice, $labourDis, $labourNet, $dentType, $dentQuan, $dentPrice, $dentDis, $dentNet,  $spareType, $spareQuan, $sparePrice, $spareDis, $spareNet);
+            $stmt->bind_param("ssidddsidddsidddsiddd", $jobID, $lubType, $lubQuan, $lubPrice, $lubDis, $lubNet, $labourCode, $labourQuan, $labourPrice, $labourDis, $labourNet, $dentType, $dentQuan, $dentPrice, $dentDis, $dentNet,  $spareType, $spareQuan, $sparePrice, $spareDis, $spareNet);
             $stmt->execute();
         }
     }
