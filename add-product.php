@@ -336,7 +336,7 @@
 									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
 										<div class="accordion-body">
 											<div class="input-blocks add-products">
-												
+
 												<!-- labourAllRows script -->
 												<?php include './includes/labourAllRows.php' ?>
 												<!-- /labourAllRows script -->
@@ -424,7 +424,7 @@
 									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
 										<div class="accordion-body">
 											<div class="input-blocks add-products">
-												
+
 												<!-- dent script -->
 												<?php include './includes/dentAllRows.php' ?>
 												<!-- /dent Script -->
@@ -514,7 +514,7 @@
 									<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
 										<div class="accordion-body">
 											<div class="input-blocks add-products">
-												
+
 												<style>
 													.search-results {
 														position: absolute;
@@ -682,7 +682,54 @@
 														document.querySelector("[name='TotalBillAmount']").value = totalBillAmount.toFixed(2);
 													}
 												</script>
+												<script>
+													document.addEventListener("DOMContentLoaded", function() {
+														function updateTotalBillAmount() {
+															let finalLubricantBillAmount = parseFloat(document.querySelector("[name='lubricantBillAmount']").value) || 0;
+															let finalLabourBillAmount = parseFloat(document.querySelector("[name='labourBillAmount']").value) || 0;
+															let finalDentBillAmount = parseFloat(document.querySelector("[name='dentBillAmount']").value) || 0;
+															let finalSpareBillAmount = parseFloat(document.querySelector("[name='billAmount']").value) || 0;
 
+															let totalBillAmount = finalLubricantBillAmount + finalLabourBillAmount + finalDentBillAmount + finalSpareBillAmount;
+															document.querySelector("[name='TotalBillAmount']").value = totalBillAmount.toFixed(2);
+
+															// VAT Calculation (13%)
+															let vatAmount = totalBillAmount * 0.13;
+															document.querySelector("[name='vatAmount']").value = vatAmount.toFixed(2);
+
+															// Update Net Total
+															updateNetTotal();
+														}
+
+														function updateNetTotal() {
+															let totalBillAmount = parseFloat(document.querySelector("[name='TotalBillAmount']").value) || 0;
+															let vatAmount = parseFloat(document.querySelector("[name='vatAmount']").value) || 0;
+															let discountAmount = parseFloat(document.querySelector("[name='discountAmount']").value) || 0;
+
+															// Net Total Calculation
+															let netTotal = totalBillAmount + vatAmount - discountAmount;
+															document.querySelector("[name='netTotal']").value = netTotal.toFixed(2);
+
+															// Update Remaining Amount if Total Paid is entered
+															updateRemainingAmount();
+														}
+
+														function updateRemainingAmount() {
+															let netTotal = parseFloat(document.querySelector("[name='netTotal']").value) || 0;
+															let totalPaid = parseFloat(document.querySelector("[name='totalPaid']").value) || 0;
+
+															// Remaining Amount Calculation
+															let remainingAmount = netTotal - totalPaid;
+															document.querySelector("[name='remainingAmount']").value = remainingAmount.toFixed(2);
+														}
+
+														// Event listeners for real-time updates
+														document.querySelectorAll("[name='lubricantBillAmount'], [name='labourBillAmount'], [name='dentBillAmount'], [name='billAmount'], [name='discountAmount']")
+															.forEach(input => input.addEventListener("input", updateTotalBillAmount));
+
+														document.querySelector("[name='totalPaid']").addEventListener("input", updateRemainingAmount);
+													});
+												</script>
 												<div class="col-lg-3 col-sm-6 col-12">
 													<div class="mb-3 add-product">
 														<label class="form-label">VAT Amount (13%)</label>
@@ -710,7 +757,29 @@
 												<div class="col-lg-3 col-sm-6 col-12">
 													<div class="mb-3 add-product">
 														<label class="form-label">Bill No.</label>
-														<input type="text" name="billNumber" class="form-control" placeholder="Bill No.">
+														<input type="text" class="form-control" name="billNumber" value="BNO<?php echo $total_job_number ?>" readonly>
+													</div>
+												</div>
+												<div class="col-lg-4 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Total Paid</label>
+														<input type="number" name="totalPaid" class="form-control" value="0">
+													</div>
+												</div>
+												<div class="col-lg-4 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Remaining Amount</label>
+														<input type="number" name="remainingAmount" class="form-control" value="0" readonly>
+													</div>
+												</div>
+												<div class="col-lg-4 col-sm-6 col-12">
+													<div class="mb-3 add-product">
+														<label class="form-label">Status</label>
+														<select class="select" name="paymentStatus">
+															<option value="">Select</option>
+															<option value="Pending">Pending</option>
+															<option value="Paid">Paid</option>
+														</select>
 													</div>
 												</div>
 											</div>

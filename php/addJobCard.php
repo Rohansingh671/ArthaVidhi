@@ -11,7 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         !empty($_POST['vehicleModel']) && !empty($_POST['vehicleColour']) && !empty($_POST['engineNumber']) &&
         !empty($_POST['vinNumber']) &&
         !empty($_POST['customerName']) && !empty($_POST['contactNumber']) && !empty($_POST['contactPerson']) &&
-        !empty($_POST['personContactNumber']) && isset($_POST['fuelBattery']) && isset($_POST['powerValue'])  && isset($_POST['dateTimeIn']) && isset($_POST['dateTimeOut'])
+        !empty($_POST['personContactNumber']) && isset($_POST['fuelBattery']) && isset($_POST['powerValue'])  && isset($_POST['dateTimeIn']) && isset($_POST['dateTimeOut']) &&
+        !empty($_POST['TotalBillAmount']) && !empty($_POST['vatAmount']) && !empty($_POST['discountAmount']) && !empty($_POST['netTotal']) && !empty($_POST['billNumber']) &&
+        !empty($_POST['totalPaid']) && !empty($_POST['remainingAmount']) && !empty($_POST['paymentStatus'])
     ) {
         $purposeAll = '';
         if (isset($_POST['purpose']) && is_array($_POST['purpose'])) {
@@ -44,6 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $purpose = $_POST['purpose'];
         $dateTimeIn = $_POST['dateTimeIn'];
         $dateTimeOut = $_POST['dateTimeOut'];
+        $TotalBillAmount = $_POST['TotalBillAmount'];
+        $vatAmount = $_POST['vatAmount'];
+        $discountAmount = $_POST['discountAmount'];
+        $netTotal = $_POST['netTotal'];
+        $billNumber = $_POST['billNumber'];
+        $totalPaid = $_POST['totalPaid'];
+        $remainingAmount = $_POST['remainingAmount'];
+        $paymentStatus = $_POST['paymentStatus'];
 
         // Validate the inputs (e.g., ensure 'fuelBattery' is either 'fuel' or 'battery')
         if ($fuelBatteryType !== 'fuel' && $fuelBatteryType !== 'battery') {
@@ -54,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Optional fields
         $customer_address = !empty($_POST['customerAddress']) ? $_POST['customerAddress'] : null;
+        $billRemarks = !empty($_POST['billRemarks']) ? $_POST['billRemarks'] : null;
         $reported_defects = !empty($_POST['reportedDefects']) ? $_POST['reportedDefects'] : null;
         $completed_action = !empty($_POST['completedAction']) ? $_POST['completedAction'] : null;
         $technician_name = !empty($_POST['technicianName']) ? $_POST['technicianName'] : 'None';
@@ -69,10 +80,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepared SQL statement for inserting job descriptions
         $stmt = $mysqli->prepare("INSERT INTO `jobCard`
         (`jobNumber`, `jobDate`, `registerNumber`, `year`, `millage`, `vehicleBrand`, `dateTimeIn`, `dateTimeOut`, `vehicleModel`, `vehicleColour`, `engineNumber`, `vinNumber`, `purpose`, `fuelBatteryType`, `powerValue`,
-        `customerName`, `customerAddress`, `contactNumber`, `contactPerson`, `personContactNumber`, `reportedDefects`, `completedAction`, `technicianName`, `supervisor`, `imageOfCar`
+        `customerName`, `customerAddress`, `contactNumber`, `contactPerson`, `personContactNumber`, `reportedDefects`, `completedAction`, `technicianName`, `supervisor`, `imageOfCar`,  `TotalBillAmount`, `vatAmount`, `discountAmount`, `netTotal`, `billNumber`, `billRemarks`, `totalPaid`, `remainingAmount`, `paymentStatus`
         ) 
     VALUES 
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
 
@@ -132,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         $stmt->bind_param(
-            "sssissssssssssissssssssss",
+            "sssissssssssssissssssssssddddssdds",
             $job_number,
             $job_date,
             $register_number,
@@ -157,7 +168,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $completed_action,
             $technician_name,
             $supervisor,
-            $imageOfCar
+            $imageOfCar,
+            $TotalBillAmount,
+            $vatAmount,
+            $discountAmount,
+            $netTotal,
+            $billNumber,
+            $billRemarks,
+            $totalPaid,
+            $remainingAmount,
+            $paymentStatus
         );
         $stmt->execute();
         $stmt->close();

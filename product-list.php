@@ -160,6 +160,7 @@
 										<th>Millage</th>
 										<th>Engine No.</th>
 										<th>Vin. No.</th>
+										<th>Payment Status</th>
 										<th class="no-sort">Action</th>
 									</tr>
 								</thead>
@@ -181,14 +182,15 @@
 											<td><?php echo $jobCard['millage']; ?></td>
 											<td><?php echo $jobCard['engineNumber']; ?></td>
 											<td><?php echo $jobCard['vinNumber']; ?></td>
+											<td><?php echo $jobCard['paymentStatus']; ?></td>
 											</td>
 											<td class="action-table-data">
 												<div class="edit-delete-action">
-													<a class="me-2 edit-icon p-2 print-pdf" href="javascript:void(0);" data-id="<?php echo $jobCard['jobNumber']; ?>">
+													<a class="me-2 edit-icon p-2 print-pdf" href="jobCard-details.php?jobNumber=<?php echo $jobCard['jobNumber']; ?>">
 														<i data-feather="printer" class="feather-eye"></i>
 													</a>
 
-													<a class="me-2 p-2" href="edit-product.php">
+													<a class="me-2 p-2" href="edit-jobCard.php?jobNumber=<?php echo $jobCard['jobNumber']; ?>">
 														<i data-feather="edit" class="feather-edit"></i>
 													</a>
 													<a class="confirm-text p-2" href="javascript:void(0);">
@@ -199,64 +201,6 @@
 										</tr>
 									<?php } ?>
 								</tbody>
-								<!-- Include jsPDF and autoTable -->
-								<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-								<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-
-								<script>
-									document.addEventListener("DOMContentLoaded", function() {
-										document.querySelectorAll(".print-pdf").forEach(button => {
-											button.addEventListener("click", function() {
-												const {
-													jsPDF
-												} = window.jspdf;
-												let doc = new jsPDF();
-
-												// Add title
-												doc.setFontSize(16);
-												doc.text("Job Card Details", 15, 20);
-
-												// Extract data from the selected row
-												let row = this.closest("tr").children;
-												let jobData = [
-													["Job Number", row[0].innerText],
-													["Customer Name", row[1].innerText],
-													["Contact Number", row[2].innerText],
-													["Job Date", row[3].innerText],
-													["Register Number", row[4].innerText],
-													["Vehicle Brand", row[5].innerText],
-													["Vehicle Model", row[6].innerText],
-													["Vehicle Colour", row[7].innerText],
-													["Millage", row[8].innerText],
-													["Engine Number", row[9].innerText],
-													["VIN Number", row[10].innerText]
-												];
-
-												// Add table
-												doc.autoTable({
-													startY: 30,
-													head: [
-														["Field", "Value"]
-													],
-													body: jobData,
-													theme: "grid",
-													styles: {
-														fontSize: 12,
-														cellPadding: 3
-													},
-													headStyles: {
-														fillColor: [22, 160, 133]
-													}
-												});
-
-												// Save the PDF
-												let fileName = "JobCard_" + row[0].innerText + ".pdf";
-												doc.save(fileName);
-											});
-										});
-									});
-								</script>
-
 							</table>
 						</div>
 					</div>

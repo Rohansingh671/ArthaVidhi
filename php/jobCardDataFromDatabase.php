@@ -17,9 +17,9 @@ if ($mysqli) {
         $stmt->close();
     } else {
         // Fetch all jobs for dropdown options
-        $stmt = $mysqli->prepare("SELECT `ID`, `jobNumber`, `jobDate`, `registerNumber`, `millage`, `vehicleBrand`, `vehicleModel`, `vehicleColour`, `engineNumber`, `vinNumber`, `customerName`, `contactNumber` FROM `jobCard`");
+        $stmt = $mysqli->prepare("SELECT `ID`, `jobNumber`, `jobDate`, `registerNumber`, `millage`, `vehicleBrand`, `vehicleModel`, `vehicleColour`, `engineNumber`, `vinNumber`, `customerName`, `contactNumber`, `paymentStatus` FROM `jobCard`");
         $stmt->execute();
-        $stmt->bind_result($ID, $jobNumber, $jobDate, $registerNumber, $millage, $vehicleBrand, $vehicleModel, $vehicleColour, $engineNumber, $vinNumber, $customerName, $contactNumber);
+        $stmt->bind_result($ID, $jobNumber, $jobDate, $registerNumber, $millage, $vehicleBrand, $vehicleModel, $vehicleColour, $engineNumber, $vinNumber, $customerName, $contactNumber, $paymentStatus);
 
         // Populate the `$jobCards` array
         while ($stmt->fetch()) {
@@ -35,7 +35,8 @@ if ($mysqli) {
                 'engineNumber' => $engineNumber,
                 'vinNumber' => $vinNumber,
                 'customerName' => $customerName,
-                'contactNumber' => $contactNumber
+                'contactNumber' => $contactNumber,
+                'paymentStatus' => $paymentStatus
             );
         }
         $stmt->close(); // Close the statement after populating the array
